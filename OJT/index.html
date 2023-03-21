@@ -1,0 +1,296 @@
+<html>
+<head>
+  <title>Dashboard | You_Health</title>
+  <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;500;600;700;900&display=swap" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet" />
+  <link href="css/shadows.css" rel="stylesheet" />
+  <link href="css/cards.css" rel="stylesheet" />
+  <link href="css/ticker.css" rel="stylesheet" />
+  <link href="css/scrollbars.css" rel="stylesheet" />
+  <meta name="title" content="You_Health Dashboard">
+  <meta name="description" content="View all your health stats at a glance">
+</head>
+<body>
+  <div class="row gx-0 main-container outlines justify-content-center overflow-hidden">
+    <!-- Sidebar -->
+    <div class="col col-10 col-lg-2 outlines justify-content-center text-secondary">
+      <div class="brand-main text-center zoom-sm">
+        <img src="images/You_Health logo_text.png" class="img-fluid p-4" style="max-height:30vh" />
+      </div>
+      <a href="#" class="fw-normal">
+      <div class="sidenav mt-5 fs-5">
+        <div class="navoption active"><i class="bi bi-house-door-fill"></i> &nbsp;&nbsp;Home</div>
+        <div class="navoption"><i class="bi bi-emoji-smile"></i> &nbsp;&nbsp;Patients</div>
+        <div class="navoption"><i class="bi bi-person"></i> &nbsp;&nbsp;Staff</div>
+        <div class="navoption"><i class="bi bi-prescription2"></i> &nbsp;&nbsp;Treatment</div>
+      </div>
+      </a>
+      <a href="http://www.gino.media" class="fw-normal" target="_blank">
+      <div class="mt-5 text-center text-secondary navfooter">
+        <b>By Gino Araullo</b>
+        <p>www.gino.media<br /><br />Made for <br /><b>You_Source</b></p>
+      </div>
+      </a>
+    </div>
+    <!-- Main Content -->
+    <div class="col col-12 col-lg-10 gx-0">
+      <!-- Ticker -->
+      <div class="row justify-content-left">
+        <div class="col col-10 ticker-main">
+          <div class="ticker-wrap gx-0 ticker-container">
+            <div class="ticker">
+              <div class="ticker__item">SARS-COV-19 Vaccine Supply Shortage</div>
+              <div class="ticker__item">Dr Anthony Uy please proceed to W302</div>
+              <div class="ticker__item">Dialysis room R124 needs nurses</div>
+              <div class="ticker__item">Nurse Emilio Aguinaldo proceed to W803</div>
+            </div>
+          </div>
+        </div>
+        <div class="col col-2 d-inline" style="font-size:1em;font-style:'Inter';font-weight:500">
+          Tuesday, March 14 2023
+        </div>
+      </div>
+      <!-- Second Container -->
+      <div class="second-container">
+        <!-- Bootstrap row -->
+        <div class="row justify-content-left gx-0">
+          <!-- Left col -->
+          <div class="col col-12 col-lg-6 gx-0">
+            <!-- Interactive Building Menu -->
+            <div class="d-block zoom-sm m-4">
+              <img src="images/illus.svg" class="img-fluid" />
+            </div>
+            <div class="d-block zoom-sm" style="margin-top: -40px;margin-bottom:2em">
+              <img src="images/Illus-sub.svg" class="img-fluid" />
+            </div>
+            <!-- Patient Card -->
+            <div class="card-hover d-block zoom-sm">
+              <div class="d-flex card-head px-3 py-2 gx-0 align-items-center">
+                <h4 class="my-0">Ward 301 - Mr. Ramon Ang</h4>
+              </div>
+              <div class="card-content">
+                <div class="row outlines">
+                  <div class="col-2 d-flex gx-0" >
+                    <div class="square-container rounded-circle">
+                      <img src="images/Ramon_Ang.jpg" class="img-fluid" />
+                    </div>
+                  </div>
+                  <div class="col">
+                    <small>Patient Name</small>
+                    <h4>Ramon S. ANG</h4>
+                  </div>
+                  <div class="col-auto">
+                    <small>Age</small>
+                    <h4>69</h4>
+                  </div>
+                  <div class="col-auto">
+                    <small>Sex</small>
+                    <h4>Male</h4>
+                  </div>
+                </div>
+                <div class="row outlines">
+                  <div class="col">
+                    <small>Ward</small>
+                    <h4>301</h4>
+                  </div>
+                  <div class="col-auto">
+                    <small>Time Admitted</small>
+                    <h4>March 8, 2023 | 6:01PM</h4>
+                  </div>
+                </div>
+                <div class="row outlines">
+                  <div class="col">
+                    <small>Diagnosis</small>
+                    <h4>High Blood Pressure</h4>
+                  </div>
+                  <div class="col">
+                    <small>Notes</small>
+                    <h4>Under Observation</h4>
+                  </div>
+                </div>
+                <div class="row outlines">
+                  <div class="col">
+                    <small>Primary Care Physician</small>
+                    <h4>Dr. Kathryn Bernardo</h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Right col -->
+          <div class="col col-12 col-lg-6">
+            <!-- Treatment Index Card -->
+            <div class="card-hover d-block overflow-auto zoom-sm">
+              <div class="card-head px-3 py-2 gx-0">
+                <div class="d-flex">
+                  <div class="flex-grow-1">
+                    <h4 class="my-0 d-inline-block">Treatment Index</h4>
+                  </div>
+                  <div>
+                    <i class="bi bi-box-arrow-in-up-right"></i>
+                  </div>
+                </div>
+                <div class="input-group">
+                  <input type="text" class="form-control head-form" placeholder="COVID19 treatment, tuberculosis, mental health..." aria-label="Search treatments">
+                  <button class="btn btn-outline-secondary head-form" type="button" id="button-addon2"><i class="bi bi-search"></i>&nbsp;&nbsp;</button>
+                </div>
+              </div>
+              <div class="card-content-scroll">
+                <div class="list-group list-group-flush">
+                  <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between" aria-current="true">
+                    Pfizer COVID-19 Vaccine
+                    <span class="fw-normal">P 2,500</span>
+                  </a>
+                  <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between" aria-current="true">
+                    Sinovac COVID-19 Vaccine
+                    <span class="fw-normal">P 1,250</span>
+                  </a>
+                  <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between" aria-current="true">
+                    Teeth Cleaning and Prophylaxis
+                    <span class="fw-normal">P 2,500</span>
+                  </a>
+                  <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between" aria-current="true">
+                    Chest X-Ray
+                    <span class="fw-normal">P 3,800</span>
+                  </a>
+                  <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between" aria-current="true">
+                    Minor Wound Care
+                    <span class="fw-normal">P 500</span>
+                  </a>
+                  <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between" aria-current="true">
+                    Mental Health Services
+                    <span class="fw-normal">P 990</span>
+                  </a>
+                  <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between" aria-current="true">
+                    Eye exam and Consultation
+                    <span class="fw-normal">P 875</span>
+                  </a>
+                  <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between" aria-current="true">
+                    Lasik services
+                    <span class="fw-normal">P 73,250</span>
+                  </a>
+                  <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between" aria-current="true">
+                    General Consultation
+                    <span class="fw-normal">P 650</span>
+                  </a>
+                  <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between" aria-current="true">
+                    Pediatric Consultation
+                    <span class="fw-normal">P 790</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <!-- Staff Index Card -->
+            <div class="card-hover d-block overflow-auto zoom-sm">
+              <div class="card-head px-3 py-2 gx-0">
+                <div class="d-flex">
+                  <div class="flex-grow-1">
+                    <h4 class="my-0 d-inline-block">Staff Index &nbsp;<span class="badge rounded-pill bg-white text-secondary">200/500 ONSITE</span></h4>
+                  </div>
+                  <div>
+                    <i class="bi bi-box-arrow-in-up-right"></i>
+                  </div>
+                </div>
+                <div class="input-group">
+                  <input type="text" class="form-control head-form" placeholder="Search staff names..." aria-label="Search staff names">
+                  <button class="btn btn-outline-secondary head-form" type="button" id="button-addon2"><i class="bi bi-search"></i>&nbsp;&nbsp;</button>
+                </div>
+              </div>
+              <div class="card-content-scroll">
+                <div class="list-group list-group-flush">
+                  <a href="#" class="list-group-item list-group-item-action align-items-center d-flex justify-content-between" aria-current="true">
+                    Dr. Kathryn Bernardo
+                    <span class="fw-normal"><i class="bi bi-circle-fill text-green text-opacity-50"></i></span>
+                  </a>
+                  <a href="#" class="list-group-item list-group-item-action align-items-center d-flex justify-content-between" aria-current="true">
+                    Nurse Maine Mendoza
+                    <span class="fw-normal"><i class="bi bi-circle-fill text-black text-opacity-25"></i></span>
+                  </a>
+                  <a href="#" class="list-group-item list-group-item-action align-items-center d-flex justify-content-between" aria-current="true">
+                    Lab Assistant Sam Milby
+                    <span class="fw-normal"><i class="bi bi-circle-fill text-green text-opacity-50"></i></span>
+                  </a>
+                  <a href="#" class="list-group-item list-group-item-action align-items-center d-flex justify-content-between" aria-current="true">
+                    Heart Surgeon John Lloyd
+                    <span class="fw-normal"><i class="bi bi-circle-fill text-green text-opacity-50"></i></span>
+                  </a>
+                  <a href="#" class="list-group-item list-group-item-action align-items-center d-flex justify-content-between" aria-current="true">
+                    Aesthetician Liza Soberano
+                    <span class="fw-normal"><i class="bi bi-circle-fill text-black text-opacity-25"></i></span>
+                  </a>
+                  <a href="#" class="list-group-item list-group-item-action align-items-center d-flex justify-content-between" aria-current="true">
+                    Physical Therapist Derek Ramsey
+                    <span class="fw-normal"><i class="bi bi-circle-fill text-green text-opacity-50"></i></span>
+                  </a>
+                  <a href="#" class="list-group-item list-group-item-action align-items-center d-flex justify-content-between" aria-current="true">
+                    Cardiologist Taylor Swift
+                    <span class="fw-normal"><i class="bi bi-circle-fill text-black text-opacity-25"></i></span>
+                  </a>
+                  <a href="#" class="list-group-item list-group-item-action align-items-center d-flex justify-content-between" aria-current="true">
+                    Opthalmologist Nadine Lustre
+                    <span class="fw-normal"><i class="bi bi-circle-fill text-green text-opacity-50"></i></span>
+                  </a>
+                  <a href="#" class="list-group-item list-group-item-action align-items-center d-flex justify-content-between" aria-current="true">
+                    Lab technician Willie Revillame
+                    <span class="fw-normal"><i class="bi bi-circle-fill text-green text-opacity-50"></i></span>
+                  </a>
+                  <a href="#" class="list-group-item list-group-item-action align-items-center d-flex justify-content-between" aria-current="true">
+                    Chef Tom Misch
+                    <span class="fw-normal"><i class="bi bi-circle-fill text-black text-opacity-25"></i></span>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <!-- Patient Index Card -->
+            <div class="card-hover d-block overflow-auto zoom-sm">
+              <div class="card-head px-3 py-2 gx-0">
+                <div class="d-flex">
+                  <div class="flex-grow-1">
+                    <h4 class="my-0 d-inline-block">Patient Index &nbsp;<span class="badge rounded-pill bg-white text-secondary">157 IN | 340 OUT</span></h4></h4>
+                  </div>
+                  <div>
+                    <i class="bi bi-box-arrow-in-up-right"></i>
+                  </div>
+                </div>
+                <div class="input-group">
+                  <input type="text" class="form-control head-form" placeholder="Search for patient names..." aria-label="Search patients">
+                  <button class="btn btn-outline-secondary head-form" type="button" id="button-addon2"><i class="bi bi-search"></i>&nbsp;&nbsp;</button>
+                </div>
+              </div>
+              <div class="card-content-scroll">
+                <div class="list-group list-group-flush">
+                  <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between" aria-current="true">
+                    Anthony Uy
+                    <span class="fw-normal">W-304</span>
+                  </a>
+                  <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between" aria-current="true">
+                    Ramon Ang
+                    <span class="fw-normal">W-301</span>
+                  </a>
+                  <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between" aria-current="true">
+                    Manuel Villar
+                    <span class="fw-normal">OUTPATIENT</span>
+                  </a>
+                  <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between" aria-current="true">
+                    Henry Sy
+                    <span class="fw-normal">OUTPATIENT</span>
+                  </a>
+                  <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between" aria-current="true">
+                    Enrique Razon
+                    <span class="fw-normal">W-605</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </body>
+  </html>

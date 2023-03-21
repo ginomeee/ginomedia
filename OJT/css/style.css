@@ -1,0 +1,130 @@
+@font-face {
+  font-family: Futura-you;
+  src: url("fonts/futura/Futura Book font.ttf") format('truetype');
+}
+/* Checks if device capable of hover */
+@media (hover: hover) {
+.zoom, .zoom-sm {
+    transition: transform .2s;
+    transform-origin:bottom bottom;
+  }
+  .zoom:hover {
+    transform: scale(1.1);
+  }
+  .zoom-sm:hover {
+    transform:scale(1.02);
+  }
+}
+
+/* For debugging purposes
+.outlines{
+  border: solid;
+  border-color: red;
+}*/
+.main-container{
+  margin: 0.5em;
+  min-height: 100vh;
+}
+.second-container{
+  border-radius: 60px 0 0 0;
+  padding: 1em;
+  padding-left: 2em;
+  background-color: #725A7A;
+  min-height:100vh;
+}
+.brand-main{
+  padding-top: 1em;
+  margin-left: 1em;
+  margin-right: 1em;
+}
+
+.sidenav{
+  padding-left: 1em;
+}
+.sidenav .navoption{
+  display: block;
+  border-radius: 30px 0 0 30px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  padding: 0.8em 0 0.8em 1em;
+  transition: 0.3s;
+}
+
+@media only screen and (max-width: 992px) {
+  .sidenav .navoption{
+    font-size: 2em;
+    border-radius: 30px;
+  }
+  .navfooter{
+    font-size: 2em;
+  }
+
+  .ticker-main {
+    top:0;
+  }
+
+
+}
+
+.sidenav .navoption:hover{
+  background-color: #C56D86;
+  color:white;
+  transition: 0.3s;
+}
+
+.navoption.active{
+  background-color: #725A7A;
+  color: white;
+}
+
+
+.bg-primary{
+  background-color: #C56D86 !important;
+}
+.text-primary{
+  color: #C56D86 !important;
+}
+.bg-secondary{
+  background-color: #725A7A !important;
+}
+.text-secondary{
+  color: #725A7A !important;
+}
+
+.text-green{
+  color: #BBCE86;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+}
+h1 {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  color: #C56D86;
+}
+h4 {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+}
+h6{
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 0.85em;
+  color: #ffffff;
+}
+
+a {
+  font-weight:bold;
+  text-decoration:none;
+  color:inherit;
+}
+
+p {
+  font-size: 1em;
+}
+
+small {
+  font-size: 0.7em;
+}
