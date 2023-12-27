@@ -21,9 +21,9 @@
 title: Ginomedia | Boopity Boop
 email: gino@dayone.media
 description: >- # this means to ignore newlines until "baseurl:"
-  Gino's test Jekyll Website lol
+  Gino's Jekyll-based website
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://gino.media" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://www.gino.media" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: ginomeee
 github_username:  ginomeee
 
