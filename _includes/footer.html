@@ -3,14 +3,6 @@
 
   <div class="wrapper">
 
-  {%- if page.title == "Gino Araullo" -%}
-    <h2 class="footer-heading footer-heading-grey">
-  {%- else -%}
-    <h2 class="footer-heading">
-  {%- endif -%}
-      Copyright &copy; Gino Araullo 2024 | All Rights Reserved.
-    </h2>
-
     <div class="footer-col-wrapper">
       <div class="footer-col footer-col-1">
         <ul class="contact-list">
@@ -20,6 +12,10 @@
             {%- if site.email -%}
             <li><a class="u-email" href="mailto:{{ site.email }}">{{ site.email }}</a></li>
             {%- endif -%}
+        </ul>
+        <ul class="contact-list">
+          <li>Full Curriculum Vitae</li>
+          <li><a href="https://gino.media/cv">gino.media/cv</a></li>
         </ul>
       </div>
 
@@ -31,6 +27,14 @@
         <p>{{- site.description | escape -}}</p>
       </div>
     </div>
+
+    {%- if page.title == "Gino Araullo" -%}
+    <h2 class="footer-heading footer-heading-grey">
+    {%- else -%}
+    <h2 class="footer-heading">
+    {%- endif -%}
+      Copyright &copy; Gino Araullo 2024 | All Rights Reserved.
+    </h2>
 
   </div>
 
