@@ -27,7 +27,7 @@ url: "https://gino.media" # the base hostname & protocol for your site, e.g. htt
 github_username:  ginomeee
 
 # Build settings
-theme: minima
+theme: null
 livereload: true
 plugins:
   - jekyll-feed
