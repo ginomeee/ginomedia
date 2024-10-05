@@ -1,0 +1,141 @@
+article {
+  margin-bottom: 1em;
+  .card, a, .a-grid {
+    height: 100% !important;
+  }
+}
+.card-container {
+  display: grid;
+  grid-template-columns: auto auto;
+  column-gap: 2rem;
+  row-gap: 1rem;
+}
+
+.card {
+  width: 100%;
+  transition: 0.3s;
+  text-decoration: none;
+  background-color: $background-color;
+  border-style: solid;
+  border-width: 5px;
+  border-radius: 10px;
+  border-color: #fff;
+  margin-bottom: 1em;
+  box-shadow: 0 2px 8px #00000080;
+  
+
+  figure.figure {
+    width: 100%;
+    height: 200px;
+    margin: 0;
+    .form-check {
+      label.form-check-label {
+        opacity: 1;
+      }
+    }
+    video, article, img {
+      overflow: hidden;
+      width: 100%;
+      height: 100%;
+      object-fit: cover; 
+    }
+  }
+
+  &__icons {
+    font-size: 3.5rem;
+  }
+
+  &__title-main{
+    padding: 1em;
+    padding-bottom: 0;
+    color: $primary;
+    display: flex;
+    justify-content: space-between;
+    text-align: left;
+    margin-bottom: -1em;
+    h3 { 
+      display:inline; 
+      margin-inline-end: 0.25em;
+    }
+    img {
+      height: 2em;
+    }
+    a { 
+      margin-top: -0.3em;
+      font-size: 2.5em;
+    };
+  }
+
+  &__title {
+    display: flex;
+    justify-content: space-between;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    background-color: #fff;
+    color: #000;
+    text-align: center;
+    font-weight: 600;
+    padding: 0.75em;
+    align-self: center;
+    a, p {
+      padding: 0;
+    }
+  }
+
+  &__body {
+    padding: 1.25rem;
+  }
+
+  &--dark {
+    @extend .card;
+    color: $body-color;
+    background-color: $body-bg-dark;
+    border-style: solid;
+    border-width: 5px;
+    border-color: $primary;
+    .card__title {
+      @extend .card__title;
+      background-color: $primary;
+      color: #000;
+      &--classic {
+        border: none;
+        background-color: $body-bg-dark;
+        color: #fff;
+        align-self: center;
+      }
+      &--danger {
+        background-color: $danger;
+      }
+      &--disabled {
+        color: #fff;
+        background-color: $accent-gray;
+      }
+    }
+    .card__body {
+      color: #fff;
+    }
+  }
+}
+
+.card:hover {
+  opacity: 0.8;
+  transition: 0.2s;
+  border: 5px rgb(145, 145, 145) solid;
+}
+
+// Mobile Only
+@media (max-width: 768px) {
+  .card {
+    &-container {
+      display: grid;
+      grid-template-columns: auto;
+    }
+    &__body {
+      padding: 1em;
+    }
+    &__title {
+      display: block;
+      justify-content: flex-start;
+    }
+  }
+}
