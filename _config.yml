@@ -18,13 +18,12 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Ginomedia | Boopity Boop
+title: Gino Araullo
 email: gino@dayone.media
 description: >- # this means to ignore newlines until "baseurl:"
   Gino's Jekyll-based website
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://www.gino.media" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: ginomeee
+url: "https://gino.media" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  ginomeee
 
 # Build settings
