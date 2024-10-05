@@ -9,6 +9,8 @@ article {
   grid-auto-flow: column;
   column-gap: 2rem;
   row-gap: 1rem;
+  justify-content: center;
+  overflow: show;
 }
 
 .card {
@@ -128,6 +130,8 @@ article {
     &-container {
       display: grid;
       grid-template-columns: auto;
+      overflow: auto;
+      justify-content: start;
     }
     &__body {
       padding: 1em;
