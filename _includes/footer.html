@@ -3,7 +3,13 @@
 
   <div class="wrapper">
 
-    <h2 class="footer-heading">Copyright &copy; Gino Araullo 2024 | All Rights Reserved.</h2>
+  {%- if page.title == "Gino Araullo" -%}
+    <h2 class="footer-heading footer-heading-grey">
+  {%- else -%}
+    <h2 class="footer-heading">
+  {%- endif -%}
+      Copyright &copy; Gino Araullo 2024 | All Rights Reserved.
+    </h2>
 
     <div class="footer-col-wrapper">
       <div class="footer-col footer-col-1">
