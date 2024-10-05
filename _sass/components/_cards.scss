@@ -6,13 +6,12 @@ article {
 }
 .card-container {
   display: grid;
-  grid-template-columns: auto auto;
+  grid-auto-flow: column;
   column-gap: 2rem;
   row-gap: 1rem;
 }
 
 .card {
-  width: 100%;
   transition: 0.3s;
   text-decoration: none;
   background-color: $background-color;
@@ -68,7 +67,7 @@ article {
 
   &__title {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     background-color: #fff;

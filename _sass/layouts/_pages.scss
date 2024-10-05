@@ -1,3 +1,12 @@
 body#frangino24 {
   text-align: center;
+  .card-container {
+    justify-content: center;
+  }
+  img.frangino-hero {
+    width: 100%;
+  }
+  img.frangino-gif {
+    max-height: 60vh;
+  }
 }
