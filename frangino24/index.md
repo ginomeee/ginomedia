@@ -1,5 +1,6 @@
 ---
 title: FranGino Anniversary 2024
+description: I would like to propose the 2024 anniversary plan to my lovelove and partner in life
 style: frangino24
 layout: blank
 ---
