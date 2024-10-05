@@ -193,3 +193,13 @@ ___
     </div>
   </div>
 </div>
+&nbsp;
+
+---
+&nbsp;
+
+### I would love to spend the day with you, and the rest of my life with you my Francoise,
+#### Happy first anniversary love! more than 90 more to come!!!
+
+
+##### Copyright &copy; Gino Araullo 2024
