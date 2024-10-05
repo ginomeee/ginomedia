@@ -1,6 +1,9 @@
 ---
 # Feel free to add content and custom Front Matter to this file.
 # To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
-
-layout: home
+permalink: /posts
+layout: default
 ---
+It is currently {{ site.time }}
+My website is hosted at {{ site.url }}
+Hello World, these are all the posts yay!
