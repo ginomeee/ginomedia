@@ -1,0 +1,6 @@
+# Notice: Collection of data on the Gino.media
+# development website is prohibited.
+
+User-agent: *
+Disallow: /dev
+Disallow: /dev/
