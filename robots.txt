@@ -4,3 +4,5 @@
 User-agent: *
 Disallow: /dev
 Disallow: /dev/
+Disallow: /factlog
+Disallow: /factlog/
