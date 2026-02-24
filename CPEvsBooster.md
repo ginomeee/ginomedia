@@ -1,4 +1,6 @@
 ---
+title: "4G CPE Antenna vs Signal Booster"
+description: "A comparison based on NTC between 4G CPE antennas and signal boosters"
 permalink: "/CPEvsBooster"
 ---
 <head>
