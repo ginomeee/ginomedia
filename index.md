@@ -1,4 +1,4 @@
----
+![f08f15f6787e27b86427bdb36a733942](https://github.com/user-attachments/assets/ac26425b-7c5f-4507-aa24-f6559244c4cc)---
 title: "Gino Araullo"
 style: "gino-index"
 layout: blank
@@ -424,15 +424,14 @@ footer {
         <h1>Eugenio Emmanuel <span class="h1-accent">(Gino)</span><br>Araullo</h1>
         <div class="title-line">// Product Manager at Huawei covering Finance, Electric, Commercial, and Conglomerate Industries</div>
         <div class="contact-grid">
-          <a class="contact-chip" href="mailto:hello@gino.media">Email me for inquiries</a>
+          <a class="contact-chip" href="mailto:hello@gino.media">hello@gino.media</a>
           <a class="contact-chip" href="mailto:gino.araullo@gmail.com">gino.araullo@gmail.com</a>
-          <a class="contact-chip" href="https://gino.media" target="_blank">gino.media</a>
-          <a class="contact-chip" href="https://linkedin.com/in/ginomedia" target="_blank">linkedin.com/in/ginomedia</a>
-          <a class="contact-chip" href="https://linkedin.com/in/ginomedia" target="_blank">linkedin.com/in/ginomedia</a>
+          <a class="contact-chip" href="https://linkedin.com/in/ginomedia" target="_blank">Connect with me on LinkedIn</a>
+          <a class="contact-chip" href="[https://www.behance.net/ginomedia" target="_blank">Graphic Design Samples</a>
         </div>
       </div>
       <div class="stat-stack">
-        <div class="stat-card"><div class="stat-num">3x</div><div class="stat-label">Hackathon Competition wins</div></div>
+        <div class="stat-card"><div class="stat-num">3x</div><div class="stat-label">International Competition wins</div></div>
         <div class="stat-card"><div class="stat-num">3×</div><div class="stat-label">Huawei Certificates</div></div>
         <div class="stat-card"><div class="stat-num">2x</div><div class="stat-label">Published research papers</div></div>
       </div>
