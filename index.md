@@ -427,7 +427,7 @@ footer {
           <a class="contact-chip" href="mailto:hello@gino.media">hello@gino.media</a>
           <a class="contact-chip" href="mailto:gino.araullo@gmail.com">gino.araullo@gmail.com</a>
           <a class="contact-chip" href="https://linkedin.com/in/ginomedia" target="_blank">Connect with me on LinkedIn</a>
-          <a class="contact-chip" href="[https://www.behance.net/ginomedia" target="_blank">Graphic Design Samples</a>
+          <a class="contact-chip" href="https://www.behance.net/ginomedia" target="_blank">Graphic Design Work</a>
         </div>
       </div>
       <div class="stat-stack">
