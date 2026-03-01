@@ -1,4 +1,4 @@
-![f08f15f6787e27b86427bdb36a733942](https://github.com/user-attachments/assets/ac26425b-7c5f-4507-aa24-f6559244c4cc)---
+---
 title: "Gino Araullo"
 style: "gino-index"
 layout: blank
