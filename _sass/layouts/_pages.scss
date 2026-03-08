@@ -1,20 +1,12 @@
 body#frangino24 {
   text-align: center;
   .wrapper {
-    justify-content: center;
+    justify-content: left;
   }
   img.frangino-hero {
     width: 100%;
   }
   img.frangino-gif {
     max-height: 60vh;
-  }
-}
-
-body#gino-index {
-  background-color: #0e1223;
-  color: #fff;
-  a:hover, a:visited {
-    color: #5e99e6;
   }
 }

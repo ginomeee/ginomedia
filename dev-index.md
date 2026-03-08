@@ -1,8 +1,8 @@
 ---
 title: "[DEVELOPMENT ONLY] Gino Araullo"
 description: "TEST ENVIRONMENT PURPOSES ONLY"
-style: "gino-index"
-layout: clean
+style: "cv-index"
+layout: blank
 permalink: "/dev"
 ---
 # This is the placeholder site. Do not go here.
