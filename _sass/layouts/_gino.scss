@@ -644,4 +644,66 @@
     .awards-grid { grid-template-columns: 1fr; }
   }
 
+    @media print {
+    --bg: #ffffff;
+    --card: #ffffff;
+    --card-hover: #ffffff;
+    --border: rgba(0,0,0,0.2);
+    --border-hover: rgba(0,0,0,0.4);
+    --blue: #1a56db;
+    --blue-bright: #1a56db;
+    --cyan: #0e7490;
+    --text: #000000;
+    --text-muted: #444444;
+    --text-dim: #222222;
+    --green: #047857;
+    --glow-hover: none;
+
+    font-size: 10px;
+    background: #fff;
+    color: #000;
+
+    .overview-text,.job-desc,.award-desc-badge,.job-company,.job-role {
+      font-size: 12px;
+      line-height: 1.25;
+    }
+
+    .card {
+      padding: 10px;
+      .pub-card {
+        padding: 10px;
+      }
+    }
+
+    // Kill decorative effects
+    &::before, &::after { display: none; }
+    .cursor-glow { display: none; }
+
+    // Remove animations and transitions
+    *, *::before, *::after {
+      animation: none !important;
+      transition: none !important;
+      box-shadow: none !important;
+      transform: none !important;
+    }
+
+    // Keep card borders visible on paper
+    .card, .cert-group-card, .skill-card,
+    .award-badge, .pub-card, .stat-card {
+      border: 1px solid rgba(0,0,0,0.2);
+      break-inside: avoid;
+    }
+
+    // Force sections visible (they start opacity: 0)
+    .section {
+      opacity: 1 !important;
+      transform: none !important;
+    }
+
+    footer a, .contact-chip {
+      color: #000;
+      text-decoration: underline;
+    }
+  }
+
 } // end .page-index
