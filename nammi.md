@@ -41,9 +41,9 @@ permalink: /nammi/
         </div>
       </div>
       <div class="stat-stack">
-        <div class="stat-card"><div class="stat-num">42.3</div><div class="stat-label">kWh nominal · 40.0 kWh usable</div></div>
+        <div class="stat-card"><div class="stat-num">42.3</div><div class="stat-label">kWh LFP battery</div></div>
         <div class="stat-card"><div class="stat-num">6.6</div><div class="stat-label">kW max AC (Type 2)</div></div>
-        <div class="stat-card"><div class="stat-num">61</div><div class="stat-label">kW max DC (CCS2)</div></div>
+        <div class="stat-card"><div class="stat-num">60</div><div class="stat-label">kW max DC (CCS2)</div></div>
       </div>
     </div>
   </header>
@@ -203,10 +203,10 @@ permalink: /nammi/
       <div class="card">
         <div class="job-top">
           <div><div class="job-company">DC Fast Charging</div><div class="job-role">CCS2 (CCS Combo 2)</div></div>
-          <span class="job-date">Max 61 kW</span>
+          <span class="job-date">Max 60 kW</span>
         </div>
         <p class="job-desc">
-          Peak DC: <span class="hl">61 kW</span>. Average 10→80%: <span class="hl">51 kW</span>.
+          Peak DC: <span class="hl">60 kW</span>. Average 10→80%: <span class="hl">51 kW</span>.
           10→80% on a 100 kW charger takes ~<span class="hl">35 minutes</span>. On a 50 kW charger: ~<span class="hl">44 minutes</span>.
           DC tapers significantly above 80% SOC. Autocharge supported; Plug &amp; Charge not supported.
         </p>
@@ -546,9 +546,9 @@ permalink: /nammi/
 
 <script>
 const NOMINAL_KWH = 42.3;
-const USABLE_KWH  = 40.0;
+const USABLE_KWH  = 42.3;
 const AC_MAX      = 6.6;
-const DC_MAX      = 61;
+const DC_MAX      = 60;
 let currentPower  = 60;
 
 function selectPreset(el) {
