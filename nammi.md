@@ -1,25 +1,15 @@
 ---
 title: "Nammi 01 Charging Calculator"
-description: "Estimate charge time, cost, and range for your Dongfeng Nammi 01. Supports AC and DC fast charging with SOC, electricity rate, and range inputs."
+description: "Estimate charge time, cost, and range for your Dongfeng Nammi 01. Supports AC and DC fast charging with SOC electricity rate, and range inputs."
 style: "gino-index"
 layout: blank
+image: /assets/Nammi_OG.png
 permalink: /nammi/
 ---
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<!-- OpenGraph -->
-<meta property="og:title"       content="Nammi 01 Charging Calculator | gino.media" />
-<meta property="og:description" content="Estimate charge time, cost, and range for your Dongfeng Nammi 01. Supports AC and DC fast charging with SOC, electricity rate, and range inputs." />
-<meta property="og:type"        content="website" />
-<meta property="og:url"         content="https://gino.media/nammi/" />
-<meta property="og:image"       content="https://www.gino.media/assets/Nammi_OG.png" />
-<meta name="twitter:card"        content="summary_large_image" />
-<meta name="twitter:title"       content="Nammi 01 Charging Calculator · gino.media" />
-<meta name="twitter:description" content="Estimate charge time, cost, and range for your Dongfeng Nammi 01." />
-<meta name="twitter:image"       content="https://www.gino.media/assets/Nammi_OG.png" />
 
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
 </head>
