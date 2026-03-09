@@ -38,6 +38,14 @@ permalink: /nammi/
     </div>
   </header>
 
+    <!-- NAMMI IMAGE -->
+  <div class="section visible nammi-showcase">
+    <div class="nammi-showcase__caption">Dongfeng Nammi 01 (Nammi Box) EV</div>
+    <div class="nammi-showcase__frame">
+      <img src="/assets/Nammi_OG.jpg" alt="Dongfeng Nammi 01" class="nammi-showcase__img" />
+    </div>
+  </div>
+
   <!-- CALCULATOR -->
   <div class="section visible">
     <div class="section-header">
@@ -54,11 +62,11 @@ permalink: /nammi/
         <div class="field-group">
           <div class="list-heading">Charger Preset</div>
           <div class="preset-grid" id="presetWrap">
-            <button class="preset-btn" data-kw="3.3"  data-type="ac" onclick="selectPreset(this)">
+            <button class="preset-btn" data-kw="3.3"  data-type="ac" data-rate="13.20" onclick="selectPreset(this)">
               <span class="preset-name">Portable Charger</span>
               <span class="preset-sub">3.3 kW AC</span>
             </button>
-            <button class="preset-btn" data-kw="6.6"  data-type="ac" onclick="selectPreset(this)">
+            <button class="preset-btn" data-kw="6.6"  data-type="ac" data-rate="13.20" onclick="selectPreset(this)">
               <span class="preset-name">Type 2 AC</span>
               <span class="preset-sub">6.6 kW · Max AC</span>
             </button>
@@ -69,6 +77,14 @@ permalink: /nammi/
             <button class="preset-btn active" data-kw="60" data-type="dc" onclick="selectPreset(this)">
               <span class="preset-name">DC Max</span>
               <span class="preset-sub">60 kW · Max DC</span>
+            </button>
+            <button class="preset-btn" data-kw="7" data-type="ac" data-rate="28.5" onclick="selectPreset(this)">
+              <span class="preset-name">EVRO AC</span>
+              <span class="preset-sub">7 kW · ₱28.50/kWh</span>
+            </button>
+            <button class="preset-btn" data-kw="60" data-type="dc" data-rate="35" onclick="selectPreset(this)">
+              <span class="preset-name">EVRO DC</span>
+              <span class="preset-sub">60 kW · ₱35.00/kWh</span>
             </button>
           </div>
         </div>
@@ -86,7 +102,7 @@ permalink: /nammi/
 
         <!-- SOC -->
         <div class="field-group">
-          <div class="list-heading">State of Charge · 42.3 kWh battery</div>
+          <div class="list-heading" id="socHeading">State of Charge · 42.3 kWh battery</div>
           <div class="soc-row">
             <span class="soc-label">Start</span>
             <input type="range" class="soc-slider" id="sliderStart" min="0" max="99" value="0" oninput="syncSoc('start',this.value)" />
@@ -99,6 +115,17 @@ permalink: /nammi/
             <input class="form-input form-input--sm" id="inputTarget" type="number" min="1" max="100" value="100" oninput="syncSoc('target',this.value)" />
             <span class="input-unit">%</span>
           </div>
+        </div>
+
+        <!-- BUDGET -->
+        <div class="field-group">
+          <div class="list-heading">Charging Budget</div>
+          <div class="input-row">
+            <span class="input-unit">₱</span>
+            <input class="form-input" id="inputBudget" type="number" min="0" max="10000" step="10" value="0" oninput="calculate()" />
+          </div>
+          <div class="field-hint" id="budgetHint">Set to 0 for no budget limit</div>
+          <input type="range" class="soc-slider" id="sliderBudget" min="0" max="10000" step="10" value="0" oninput="syncBudget(this.value)" style="margin-top:10px;width:100%;" />
         </div>
 
         <!-- RATE -->
@@ -120,6 +147,21 @@ permalink: /nammi/
             <span class="input-unit">km / kWh</span>
           </div>
           <div class="field-hint">Nammi 01 typical: ~10 km/kWh city (PH conditions)</div>
+        </div>
+
+        <!-- BATTERY CAPACITY -->
+        <div class="field-group">
+          <div class="list-heading">Battery Capacity</div>
+          <div class="input-row">
+            <input class="form-input" id="inputCapacity" type="number" min="1" max="200" step="0.1" value="42.3" oninput="calculate()" />
+            <span class="input-unit">kWh</span>
+          </div>
+          <div class="field-hint" id="capacityHint">Nammi 01 default · 42.3 kWh nominal</div>
+          <div class="field-hint" style="margin-top:8px;line-height:1.8;">
+            Other EVs: Bestune Pony 30.3 kWh · MG4 51 kWh · BYD Seal 82.6 kWh ·<br>
+            Tesla Model 3 (SR) 60 kWh · Model 3 (LR) 82 kWh · Model Y (SR) 60 kWh · Model Y (LR) 82 kWh ·<br>
+            Volvo C40 Recharge 82 kWh · Volvo EX30 49 kWh
+          </div>
         </div>
 
       </div>
@@ -151,6 +193,16 @@ permalink: /nammi/
         <div class="result-row">
           <span class="result-label">SOC Window</span>
           <span class="result-value result-value--soc" id="resSoc">—</span>
+        </div>
+        <div class="result-divider"></div>
+        <div class="result-row">
+          <span class="result-label">SOC % Added</span>
+          <span class="result-value result-value--soc" id="resSocAdded">—</span>
+        </div>
+        <div class="result-divider"></div>
+        <div class="result-row">
+          <span class="result-label">Budget Capacity</span>
+          <span class="result-value result-value--soc" id="resBudgetEquiv">—</span>
         </div>
 
         <!-- SOC BAR -->
@@ -231,7 +283,7 @@ permalink: /nammi/
           <span class="card-meta">70 kW · 160 Nm</span>
         </div>
         <p class="card-body">
-          0–100 km/h: <span class="hl">12.5 sec</span>. Top speed: <span class="hl">140 km/h</span>.
+          0–100 km/h: <span class="hl">12.5 sec</span>. Top speed (Philippines): <span class="hl">150 km/h</span>.
           Real-world efficiency: ~<span class="hl">157 Wh/km</span> combined. City mild weather: 104 Wh/km.
           Fuel equivalent: ~1.8 L/100km.
         </p>
@@ -262,18 +314,26 @@ permalink: /nammi/
   </div>
 </div><!-- end .gino-page -->
 
+
 <script>
-const USABLE_KWH = 42.3;
-const AC_MAX     = 6.6;
-const DC_MAX     = 60;
+const AC_MAX = 6.6;
+const DC_MAX = 60;
 let currentPower = 60;
+
+function getCapacity() {
+  return parseFloat(document.getElementById('inputCapacity').value) || 42.3;
+}
 
 function selectPreset(el) {
   document.querySelectorAll('.preset-btn').forEach(b => b.classList.remove('active'));
   el.classList.add('active');
-  const kw = parseFloat(el.dataset.kw);
+  const kw   = parseFloat(el.dataset.kw);
+  const rate = el.dataset.rate ? parseFloat(el.dataset.rate) : null;
   document.getElementById('inputPower').value = kw;
   currentPower = kw;
+  if (rate !== null) {
+    document.getElementById('inputRate').value = rate.toFixed(2);
+  }
   updateSpeedLabel(kw);
   calculate();
 }
@@ -311,6 +371,13 @@ function updateSpeedLabel(kw) {
   }
 }
 
+function syncBudget(val) {
+  val = parseInt(val) || 0;
+  document.getElementById('inputBudget').value = val;
+  document.getElementById('sliderBudget').value = val;
+  calculate();
+}
+
 function syncSoc(type, val) {
   val = parseInt(val);
   const ss = document.getElementById('sliderStart'),
@@ -336,30 +403,75 @@ function formatTime(h) {
 }
 
 function calculate() {
-  const power  = Math.min(currentPower, DC_MAX);
-  const start  = parseInt(document.getElementById('inputStart').value)  || 0;
-  const target = parseInt(document.getElementById('inputTarget').value) || 100;
-  const rate   = parseFloat(document.getElementById('inputRate').value) || 13.20;
-  const eff    = parseFloat(document.getElementById('inputEfficiency').value) || 10;
+  const capacity = getCapacity();
+  const power    = Math.min(currentPower, DC_MAX);
+  let   start    = parseInt(document.getElementById('inputStart').value)  || 0;
+  let   target   = parseInt(document.getElementById('inputTarget').value) || 100;
+  const rate     = parseFloat(document.getElementById('inputRate').value) || 13.20;
+  const eff      = parseFloat(document.getElementById('inputEfficiency').value) || 10;
+  const budget   = parseFloat(document.getElementById('inputBudget').value) || 0;
   if (!power || power <= 0 || start >= target) return;
 
-  const delta  = (target - start) / 100;
-  const energy = USABLE_KWH * delta;
-  const time   = energy / power;
-  const cost   = energy * rate;
-  const range  = energy * eff;
+  // Update SOC heading to reflect current capacity
+  document.querySelector('#socHeading').textContent =
+    `State of Charge · ${capacity.toFixed(1)} kWh battery`;
 
-  document.getElementById('resTime').textContent   = formatTime(time);
-  document.getElementById('resEnergy').textContent = energy.toFixed(2) + ' kWh';
-  document.getElementById('resCost').textContent   = '₱' + cost.toFixed(2);
-  document.getElementById('resRange').textContent  = range.toFixed(0) + ' km';
-  document.getElementById('resSoc').textContent    = start + '% → ' + target + '%';
+  // Budget clamping
+  const notes = [];
+  if (budget > 0 && rate > 0) {
+    const maxEnergy    = budget / rate;
+    const maxSocDelta  = Math.floor((maxEnergy / capacity) * 100);
+    const budgetTarget = Math.min(100, start + maxSocDelta);
+    if (budgetTarget < target) {
+      target = budgetTarget;
+      document.getElementById('sliderTarget').value = target;
+      document.getElementById('inputTarget').value  = target;
+      const maxE = capacity * (target - start) / 100;
+      notes.push(`💰 Budget ₱${budget.toFixed(0)} covers up to <strong>${target}%</strong> SOC (${maxE.toFixed(1)} kWh · ₱${(maxE * rate).toFixed(2)}).`);
+    } else {
+      const fullCost = capacity * (target - start) / 100 * rate;
+      notes.push(`💰 Budget ₱${budget.toFixed(0)} is sufficient — full charge costs ~₱${fullCost.toFixed(2)}.`);
+    }
+    document.getElementById('budgetHint').textContent = `₱${budget.toFixed(2)} budget active`;
+  } else {
+    document.getElementById('budgetHint').textContent = 'Set to 0 for no budget limit';
+  }
+
+  const delta   = (target - start) / 100;
+  const energy  = capacity * delta;
+  const time    = energy / power;
+  const cost    = energy * rate;
+  const range   = energy * eff;
+  const socDiff = target - start;
+
+  document.getElementById('resTime').textContent      = formatTime(time);
+  document.getElementById('resEnergy').textContent    = energy.toFixed(2) + ' kWh';
+  document.getElementById('resCost').textContent      = '₱' + cost.toFixed(2);
+  document.getElementById('resRange').textContent     = range.toFixed(0) + ' km';
+  document.getElementById('resSoc').textContent       = start + '% → ' + target + '%';
+  document.getElementById('resSocAdded').textContent  = '+' + socDiff + '%';
+
+  // Budget equivalent: how many sessions like this can ₱X buy?
+  // Only meaningful when a budget is set OR always show based on session cost
+  if (budget > 0 && cost > 0) {
+    const sessions = budget / cost;
+    const totalSoc = sessions * socDiff;
+    document.getElementById('resBudgetEquiv').textContent =
+      `${sessions.toFixed(1)}× sessions (${totalSoc.toFixed(0)}% total)`;
+  } else if (cost > 0) {
+    // No budget set — show how many full 0→100% charges ₱1500 buys
+    const fullChargeCost = capacity * rate;
+    const chargesPerK    = 1500 / fullChargeCost;
+    document.getElementById('resBudgetEquiv').textContent =
+      `~${chargesPerK.toFixed(1)}× full charges / ₱1,500`;
+  } else {
+    document.getElementById('resBudgetEquiv').textContent = '—';
+  }
 
   document.getElementById('barFill').style.left  = start + '%';
   document.getElementById('barFill').style.width = (target - start) + '%';
   document.getElementById('barStart').style.left = start + '%';
 
-  const notes = [];
   if (target > 80 && power > AC_MAX) notes.push('⚡ DC tapers above 80% — actual time will be ~10–20% longer.');
   if (target === 100) notes.push('✓ LFP: charging to 100% daily is safe and helps BMS calibration.');
   if (power <= 2.4)   notes.push('⚠ Slow charge. A dedicated Type 2 wallbox will be significantly faster.');
@@ -367,6 +479,11 @@ function calculate() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('inputBudget').addEventListener('input', function() {
+    document.getElementById('sliderBudget').value = this.value;
+    calculate();
+  });
+
   updateSpeedLabel(60);
   calculate();
 

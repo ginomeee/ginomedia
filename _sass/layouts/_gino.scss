@@ -958,4 +958,46 @@
     .result-value { color: #000; }
   }
 
+  // ── NAMMI SHOWCASE ───────────────────────────────────────
+  .nammi-showcase { margin-top: 48px; }
+
+  .nammi-showcase__caption {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--text-muted);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+
+  .nammi-showcase__frame {
+    width: 100%;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    aspect-ratio: 28 / 7;
+    position: relative;
+  }
+
+  .nammi-showcase__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 55%;
+    display: block;
+    transition: transform 0.6s cubic-bezier(0.4,0,0.2,1);
+  }
+
+  .nammi-showcase__frame:hover .nammi-showcase__img {
+    transform: scale(1.02);
+  }
+
+  @media (max-width: 680px) {
+    .nammi-showcase__frame { aspect-ratio: 16 / 9; }
+  }
+
+  @media print {
+    .nammi-showcase { display: none; }
+  }
+
 } // end .gino-page
