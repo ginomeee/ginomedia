@@ -1,4 +1,11 @@
-.page-index {
+// ─────────────────────────────────────────────────────────────
+//  _gino.scss
+//  Universal styles for gino.media pages.
+//  Root class scope: .gino-page
+//  All pages use <div class="gino-page"> as their wrapper.
+// ─────────────────────────────────────────────────────────────
+
+.gino-page {
 
   // ── VARIABLES ────────────────────────────────────────────
   --bg: #060b14;
@@ -63,6 +70,15 @@
     z-index: 1;
   }
 
+  // ── WRAPPER ──────────────────────────────────────────────
+  .wrapper {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 32px;
+    position: relative;
+    z-index: 2;
+  }
+
   // ── HEADER ───────────────────────────────────────────────
   header {
     padding: 72px 0 52px;
@@ -97,11 +113,11 @@
       border-radius: 50%;
       background: var(--green);
       box-shadow: 0 0 8px var(--green);
-      animation: pi-pulse 2s infinite;
+      animation: gino-pulse 2s infinite;
     }
   }
 
-  @keyframes pi-pulse {
+  @keyframes gino-pulse {
     0%, 100% { opacity: 1; transform: scale(1); }
     50%       { opacity: .6; transform: scale(.85); }
   }
@@ -125,14 +141,15 @@
     margin-bottom: 28px;
   }
 
-  // ── CONTACT ──────────────────────────────────────────────
-  .contact-grid {
+  // ── CHIP ROW (contact links, nav chips) ──────────────────
+  // Formerly .contact-grid / .contact-chip
+  .chip-row {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
   }
 
-  .contact-chip {
+  .chip {
     font-family: var(--mono);
     font-size: 14px;
     color: var(--text-dim);
@@ -223,8 +240,9 @@
     background: linear-gradient(90deg, var(--border) 0%, transparent 100%);
   }
 
-  // ── OVERVIEW ─────────────────────────────────────────────
-  .overview-text {
+  // ── PROSE BLOCK ──────────────────────────────────────────
+  // Formerly .overview-text
+  .prose-block {
     font-size: 18px;
     color: var(--text-dim);
     line-height: 1.5;
@@ -279,8 +297,10 @@
     }
   }
 
-  // ── JOB CARDS ────────────────────────────────────────────
-  .job-top {
+  // ── CARD CONTENT ─────────────────────────────────────────
+  // Formerly .job-top / .job-company / .job-role / .job-date / .job-desc
+  // Also used for specs cards in nammi.md
+  .card-header {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
@@ -289,20 +309,20 @@
     flex-wrap: wrap;
   }
 
-  .job-company {
+  .card-title {
     font-size: 16px;
     font-weight: 600;
     color: #fff;
     margin-bottom: 2px;
   }
 
-  .job-role {
+  .card-subtitle {
     font-family: var(--mono);
     font-size: 14px;
     color: var(--blue);
   }
 
-  .job-date {
+  .card-meta {
     font-family: var(--mono);
     font-size: 10.5px;
     color: var(--text-muted);
@@ -313,7 +333,7 @@
     padding: 3px 9px;
   }
 
-  .job-desc {
+  .card-body {
     font-size: 14px;
     color: var(--text-dim);
     line-height: 1.75;
@@ -370,8 +390,9 @@
     line-height: 1.65;
   }
 
-  // ── CERTIFICATIONS ───────────────────────────────────────
-  .cert-group-card {
+  // ── LIST CARD ────────────────────────────────────────────
+  // Formerly .cert-group-card and .skill-card — identical styles, merged.
+  .list-card {
     background: var(--card);
     border: 1px solid var(--border);
     border-radius: 12px;
@@ -386,7 +407,10 @@
     }
   }
 
-  .cert-issuer {
+  // ── LIST HEADING ─────────────────────────────────────────
+  // Formerly .cert-issuer — used for cert issuer labels and
+  // calculator field section headers.
+  .list-heading {
     font-family: var(--mono);
     font-size: 16px;
     font-weight: 500;
@@ -404,29 +428,9 @@
     }
   }
 
-  .cert-list {
-    font-size: 13px;
-    color: var(--text-dim);
-    line-height: 1.75;
-  }
-
-  // ── SKILLS ───────────────────────────────────────────────
-  .skill-card {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 20px 22px;
-    transition: all 0.25s;
-
-    &:hover {
-      border-color: var(--border-hover);
-      background: var(--card-hover);
-      transform: translateY(-2px);
-      box-shadow: var(--glow-hover);
-    }
-  }
-
-  .skill-label {
+  // ── LIST LABEL ───────────────────────────────────────────
+  // Formerly .skill-label — smaller variant used inside .list-card.
+  .list-label {
     font-family: var(--mono);
     font-size: 10px;
     font-weight: 500;
@@ -444,7 +448,15 @@
     }
   }
 
-  .tag-wrap {
+  .list-body {
+    font-size: 13px;
+    color: var(--text-dim);
+    line-height: 1.75;
+  }
+
+  // ── TAGS ─────────────────────────────────────────────────
+  // Formerly .tag-wrap / .tag
+  .tag-row {
     display: flex;
     flex-wrap: wrap;
     gap: 6px;
@@ -468,7 +480,7 @@
     }
   }
 
-  // ── AWARDS — BADGE STYLE ─────────────────────────────────
+  // ── AWARDS ───────────────────────────────────────────────
   .awards-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -580,13 +592,15 @@
     margin-bottom: 8px;
   }
 
-  .award-desc-badge {
+  // Formerly .award-desc-badge
+  .award-desc {
     font-size: 13px;
     color: var(--text-dim);
     line-height: 1.6;
   }
 
-  .award-year-tag {
+  // Formerly .award-year-tag
+  .award-year {
     margin-top: 14px;
     font-family: var(--mono);
     font-size: 12px;
@@ -595,6 +609,243 @@
     border: 1px solid var(--border);
     border-radius: 4px;
     padding: 2px 8px;
+  }
+
+  // ── CALCULATOR: PRESET GRID ──────────────────────────────
+  .preset-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 8px;
+    margin-top: 6px;
+  }
+
+  .preset-btn {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px 14px;
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.2s;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    &:hover {
+      border-color: var(--border-hover);
+      background: var(--card-hover);
+    }
+
+    &.active {
+      border-color: var(--blue);
+      background: rgba(59,130,246,0.1);
+    }
+  }
+
+  .preset-name {
+    font-family: var(--sans);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text);
+  }
+
+  .preset-sub {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+
+  // ── CALCULATOR: FIELD GROUP ──────────────────────────────
+  .field-group {
+    margin-bottom: 28px;
+
+    &:last-child { margin-bottom: 0; }
+  }
+
+  // ── CALCULATOR: INPUT ROW ────────────────────────────────
+  .input-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 6px;
+  }
+
+  .form-input {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    color: var(--text);
+    font-family: var(--mono);
+    font-size: 16px;
+    padding: 9px 14px;
+    width: 110px;
+    transition: border-color 0.2s;
+    -moz-appearance: textfield;
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button { -webkit-appearance: none; }
+
+    &:focus {
+      outline: none;
+      border-color: var(--blue);
+    }
+
+    &.form-input--sm {
+      width: 66px;
+      text-align: center;
+    }
+  }
+
+  .input-unit {
+    font-family: var(--mono);
+    font-size: 14px;
+    color: var(--text-muted);
+  }
+
+  .field-hint {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 6px;
+    min-height: 16px;
+  }
+
+  // ── CALCULATOR: SPEED LABEL ──────────────────────────────
+  .speed-label {
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 100px;
+    border: 1px solid transparent;
+
+    &.slow { color: #f59e0b; background: rgba(245,158,11,0.1);  border-color: rgba(245,158,11,0.3);  }
+    &.ac   { color: var(--cyan);  background: rgba(6,182,212,0.1);  border-color: rgba(6,182,212,0.3);  }
+    &.dc   { color: var(--green); background: rgba(16,185,129,0.1); border-color: rgba(16,185,129,0.3); }
+  }
+
+  // ── CALCULATOR: SOC SLIDERS ──────────────────────────────
+  .soc-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 8px;
+  }
+
+  .soc-label {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--text-muted);
+    width: 46px;
+    flex-shrink: 0;
+  }
+
+  .soc-slider {
+    flex: 1;
+    -webkit-appearance: none;
+    height: 5px;
+    border-radius: 3px;
+    background: rgba(59,130,246,0.15);
+    outline: none;
+    cursor: pointer;
+
+    &::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--blue-bright);
+      border: 2px solid var(--bg);
+      cursor: pointer;
+      transition: transform 0.15s;
+
+      &:hover { transform: scale(1.2); }
+    }
+  }
+
+  // ── CALCULATOR: RESULTS ──────────────────────────────────
+  .result-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 14px 0;
+  }
+
+  .result-label {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  .result-value {
+    font-family: var(--mono);
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--blue-bright);
+
+    &.result-value--primary { font-size: 32px; }
+    &.result-value--soc     { font-size: 18px; letter-spacing: 0.05em; }
+  }
+
+  .result-divider {
+    height: 1px;
+    background: var(--border);
+  }
+
+  // ── CALCULATOR: SOC BAR ──────────────────────────────────
+  .soc-bar {
+    margin-top: 20px;
+  }
+
+  .soc-bar__track {
+    height: 12px;
+    border-radius: 6px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .soc-bar__fill {
+    position: absolute;
+    top: 0; bottom: 0;
+    background: linear-gradient(90deg, var(--blue), var(--cyan));
+    border-radius: 6px;
+    transition: left 0.3s, width 0.3s;
+  }
+
+  .soc-bar__marker {
+    position: absolute;
+    top: 0; bottom: 0;
+    width: 2px;
+    background: rgba(255,255,255,0.3);
+    transition: left 0.3s;
+  }
+
+  .soc-bar__labels {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5px;
+
+    span {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+  }
+
+  // ── CALCULATOR: NOTES ────────────────────────────────────
+  .calc-notes {
+    margin-top: 16px;
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--text-muted);
+    line-height: 1.8;
+    min-height: 20px;
   }
 
   // ── FOOTER ───────────────────────────────────────────────
@@ -632,19 +883,23 @@
 
   // ── RESPONSIVE ───────────────────────────────────────────
   @media (max-width: 680px) {
-    .header-inner { grid-template-columns: 1fr; }
-    .stat-stack { flex-direction: row; flex-wrap: wrap; }
-    .stat-card { flex: 1; min-width: 120px; text-align: left; }
-    .card-grid.two-col { grid-template-columns: 1fr; }
-    .awards-grid { grid-template-columns: repeat(2, 1fr); }
-    h1 { font-size: 32px; }
+    .header-inner          { grid-template-columns: 1fr; }
+    .stat-stack            { flex-direction: row; flex-wrap: wrap; }
+    .stat-card             { flex: 1; min-width: 120px; text-align: left; }
+    .card-grid.two-col     { grid-template-columns: 1fr; }
+    .awards-grid           { grid-template-columns: repeat(2, 1fr); }
+    .preset-grid           { grid-template-columns: repeat(2, 1fr); }
+    .result-value          { font-size: 20px; }
+    .result-value--primary { font-size: 26px; }
+    h1                     { font-size: 32px; }
   }
 
   @media (max-width: 420px) {
     .awards-grid { grid-template-columns: 1fr; }
   }
 
-    @media print {
+  // ── PRINT ────────────────────────────────────────────────
+  @media print {
     --bg: #ffffff;
     --card: #ffffff;
     --card-hover: #ffffff;
@@ -663,23 +918,21 @@
     background: #fff;
     color: #000;
 
-    .overview-text,.job-desc,.award-desc-badge,.job-company,.job-role {
+    .prose-block, .card-body, .award-desc, .card-title, .card-subtitle {
       font-size: 12px;
       line-height: 1.25;
     }
 
     .card {
       padding: 10px;
-      .pub-card {
-        padding: 10px;
-      }
+      .pub-card { padding: 10px; }
     }
 
-    // Kill decorative effects
     &::before, &::after { display: none; }
-    .cursor-glow { display: none; }
+    .cursor-glow        { display: none; }
+    .preset-grid        { display: none; }
+    .soc-slider         { display: none; }
 
-    // Remove animations and transitions
     *, *::before, *::after {
       animation: none !important;
       transition: none !important;
@@ -687,23 +940,22 @@
       transform: none !important;
     }
 
-    // Keep card borders visible on paper
-    .card, .cert-group-card, .skill-card,
-    .award-badge, .pub-card, .stat-card {
+    .card, .list-card, .award-badge, .pub-card, .stat-card {
       border: 1px solid rgba(0,0,0,0.2);
       break-inside: avoid;
     }
 
-    // Force sections visible (they start opacity: 0)
     .section {
       opacity: 1 !important;
       transform: none !important;
     }
 
-    footer a, .contact-chip {
+    footer a, .chip {
       color: #000;
       text-decoration: underline;
     }
+
+    .result-value { color: #000; }
   }
 
-} // end .page-index
+} // end .gino-page

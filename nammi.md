@@ -25,7 +25,7 @@ permalink: /nammi/
 </head>
 <body>
 
-<div class="page-index page-nammi">
+<div class="gino-page">
   <div class="wrapper">
   <div class="cursor-glow" id="cursorGlow"></div>
 
@@ -36,8 +36,8 @@ permalink: /nammi/
         <div class="badge">Dongfeng Nammi 01 · 42.3 kWh LFP · Type 2 / CCS2</div>
         <h1>Nammi <span class="h1-accent">01</span><br>Charging Calculator</h1>
         <div class="title-line">// Estimate charge time, cost, and range for your session</div>
-        <div class="contact-grid">
-          <a class="contact-chip" href="/">← Back to gino.media</a>
+        <div class="chip-row">
+          <a class="chip" href="/">← Back to gino.media</a>
         </div>
       </div>
       <div class="stat-stack">
@@ -58,123 +58,123 @@ permalink: /nammi/
     <div class="card-grid two-col">
 
       <!-- INPUTS -->
-      <div class="card nammi-input-card">
+      <div class="card">
 
         <!-- PRESETS -->
-        <div class="nammi-field-group">
-          <div class="cert-issuer">Charger Preset</div>
-          <div class="nammi-preset-grid" id="presetWrap">
-            <button class="nammi-preset" data-kw="3.3"  data-type="ac" onclick="selectPreset(this)">
-              <span class="nammi-preset-name">Portable Charger</span>
-              <span class="nammi-preset-sub">3.3 kW AC</span>
+        <div class="field-group">
+          <div class="list-heading">Charger Preset</div>
+          <div class="preset-grid" id="presetWrap">
+            <button class="preset-btn" data-kw="3.3"  data-type="ac" onclick="selectPreset(this)">
+              <span class="preset-name">Portable Charger</span>
+              <span class="preset-sub">3.3 kW AC</span>
             </button>
-            <button class="nammi-preset" data-kw="6.6"  data-type="ac" onclick="selectPreset(this)">
-              <span class="nammi-preset-name">Type 2 AC</span>
-              <span class="nammi-preset-sub">6.6 kW · Max AC</span>
+            <button class="preset-btn" data-kw="6.6"  data-type="ac" onclick="selectPreset(this)">
+              <span class="preset-name">Type 2 AC</span>
+              <span class="preset-sub">6.6 kW · Max AC</span>
             </button>
-            <button class="nammi-preset" data-kw="30"   data-type="dc" onclick="selectPreset(this)">
-              <span class="nammi-preset-name">DC Fast</span>
-              <span class="nammi-preset-sub">30 kW DC</span>
+            <button class="preset-btn" data-kw="30"   data-type="dc" onclick="selectPreset(this)">
+              <span class="preset-name">DC Fast</span>
+              <span class="preset-sub">30 kW DC</span>
             </button>
-            <button class="nammi-preset active" data-kw="60" data-type="dc" onclick="selectPreset(this)">
-              <span class="nammi-preset-name">DC Max</span>
-              <span class="nammi-preset-sub">60 kW · Max DC</span>
+            <button class="preset-btn active" data-kw="60" data-type="dc" onclick="selectPreset(this)">
+              <span class="preset-name">DC Max</span>
+              <span class="preset-sub">60 kW · Max DC</span>
             </button>
           </div>
         </div>
 
         <!-- CHARGING POWER -->
-        <div class="nammi-field-group">
-          <div class="cert-issuer">Charging Power</div>
-          <div class="nammi-input-row">
-            <input class="nammi-input" id="inputPower" type="number" min="0.1" max="61" step="0.1" value="60" oninput="onManualPower(this)" />
-            <span class="nammi-unit">kW</span>
-            <span class="nammi-speed-label" id="speedLabel"></span>
+        <div class="field-group">
+          <div class="list-heading">Charging Power</div>
+          <div class="input-row">
+            <input class="form-input" id="inputPower" type="number" min="0.1" max="61" step="0.1" value="60" oninput="onManualPower(this)" />
+            <span class="input-unit">kW</span>
+            <span class="speed-label" id="speedLabel"></span>
           </div>
-          <div class="nammi-hint" id="powerHint"></div>
+          <div class="field-hint" id="powerHint"></div>
         </div>
 
         <!-- SOC -->
-        <div class="nammi-field-group">
-          <div class="cert-issuer">State of Charge · 42.3 kWh battery</div>
-          <div class="nammi-soc-row">
-            <span class="nammi-soc-label">Start</span>
-            <input type="range" class="nammi-slider" id="sliderStart" min="0" max="99" value="0" oninput="syncSoc('start',this.value)" />
-            <input class="nammi-input nammi-input-sm" id="inputStart" type="number" min="0" max="99" value="0" oninput="syncSoc('start',this.value)" />
-            <span class="nammi-unit">%</span>
+        <div class="field-group">
+          <div class="list-heading">State of Charge · 42.3 kWh battery</div>
+          <div class="soc-row">
+            <span class="soc-label">Start</span>
+            <input type="range" class="soc-slider" id="sliderStart" min="0" max="99" value="0" oninput="syncSoc('start',this.value)" />
+            <input class="form-input form-input--sm" id="inputStart" type="number" min="0" max="99" value="0" oninput="syncSoc('start',this.value)" />
+            <span class="input-unit">%</span>
           </div>
-          <div class="nammi-soc-row">
-            <span class="nammi-soc-label">Target</span>
-            <input type="range" class="nammi-slider" id="sliderTarget" min="1" max="100" value="100" oninput="syncSoc('target',this.value)" />
-            <input class="nammi-input nammi-input-sm" id="inputTarget" type="number" min="1" max="100" value="100" oninput="syncSoc('target',this.value)" />
-            <span class="nammi-unit">%</span>
+          <div class="soc-row">
+            <span class="soc-label">Target</span>
+            <input type="range" class="soc-slider" id="sliderTarget" min="1" max="100" value="100" oninput="syncSoc('target',this.value)" />
+            <input class="form-input form-input--sm" id="inputTarget" type="number" min="1" max="100" value="100" oninput="syncSoc('target',this.value)" />
+            <span class="input-unit">%</span>
           </div>
         </div>
 
         <!-- RATE -->
-        <div class="nammi-field-group">
-          <div class="cert-issuer">Electricity Rate</div>
-          <div class="nammi-input-row">
-            <span class="nammi-unit">₱</span>
-            <input class="nammi-input" id="inputRate" type="number" min="0" step="0.01" value="13.20" oninput="calculate()" />
-            <span class="nammi-unit">/ kWh</span>
+        <div class="field-group">
+          <div class="list-heading">Electricity Rate</div>
+          <div class="input-row">
+            <span class="input-unit">₱</span>
+            <input class="form-input" id="inputRate" type="number" min="0" step="0.01" value="13.20" oninput="calculate()" />
+            <span class="input-unit">/ kWh</span>
           </div>
-          <div class="nammi-hint">Meralco residential avg ~₱10.50–₱13.20 / kWh</div>
+          <div class="field-hint">Meralco residential avg ~₱10.50–₱13.20 / kWh</div>
         </div>
 
         <!-- EFFICIENCY -->
-        <div class="nammi-field-group">
-          <div class="cert-issuer">Efficiency</div>
-          <div class="nammi-input-row">
-            <input class="nammi-input" id="inputEfficiency" type="number" min="1" max="20" step="0.1" value="10" oninput="calculate()" />
-            <span class="nammi-unit">km / kWh</span>
+        <div class="field-group">
+          <div class="list-heading">Efficiency</div>
+          <div class="input-row">
+            <input class="form-input" id="inputEfficiency" type="number" min="1" max="20" step="0.1" value="10" oninput="calculate()" />
+            <span class="input-unit">km / kWh</span>
           </div>
-          <div class="nammi-hint">Nammi 01 typical: ~10 km/kWh city (PH conditions)</div>
+          <div class="field-hint">Nammi 01 typical: ~10 km/kWh city (PH conditions)</div>
         </div>
 
       </div>
 
       <!-- RESULTS -->
-      <div class="card nammi-results-card">
-        <div class="cert-issuer">Results</div>
+      <div class="card">
+        <div class="list-heading">Results</div>
 
-        <div class="nammi-result-row">
-          <span class="nammi-result-label">Charge Time</span>
-          <span class="nammi-result-value nammi-result-primary" id="resTime">—</span>
+        <div class="result-row">
+          <span class="result-label">Charge Time</span>
+          <span class="result-value result-value--primary" id="resTime">—</span>
         </div>
-        <div class="nammi-result-divider"></div>
-        <div class="nammi-result-row">
-          <span class="nammi-result-label">Energy Added</span>
-          <span class="nammi-result-value" id="resEnergy">—</span>
+        <div class="result-divider"></div>
+        <div class="result-row">
+          <span class="result-label">Energy Added</span>
+          <span class="result-value" id="resEnergy">—</span>
         </div>
-        <div class="nammi-result-divider"></div>
-        <div class="nammi-result-row">
-          <span class="nammi-result-label">Est. Cost</span>
-          <span class="nammi-result-value" id="resCost">—</span>
+        <div class="result-divider"></div>
+        <div class="result-row">
+          <span class="result-label">Est. Cost</span>
+          <span class="result-value" id="resCost">—</span>
         </div>
-        <div class="nammi-result-divider"></div>
-        <div class="nammi-result-row">
-          <span class="nammi-result-label">Range Added</span>
-          <span class="nammi-result-value" id="resRange">—</span>
+        <div class="result-divider"></div>
+        <div class="result-row">
+          <span class="result-label">Range Added</span>
+          <span class="result-value" id="resRange">—</span>
         </div>
-        <div class="nammi-result-divider"></div>
-        <div class="nammi-result-row">
-          <span class="nammi-result-label">SOC Window</span>
-          <span class="nammi-result-value nammi-result-soc" id="resSoc">—</span>
+        <div class="result-divider"></div>
+        <div class="result-row">
+          <span class="result-label">SOC Window</span>
+          <span class="result-value result-value--soc" id="resSoc">—</span>
         </div>
 
         <!-- SOC BAR -->
-        <div class="nammi-bar-wrap">
-          <div class="nammi-bar-track">
-            <div class="nammi-bar-fill" id="barFill"></div>
-            <div class="nammi-bar-start" id="barStart"></div>
+        <div class="soc-bar">
+          <div class="soc-bar__track">
+            <div class="soc-bar__fill" id="barFill"></div>
+            <div class="soc-bar__marker" id="barStart"></div>
           </div>
-          <div class="nammi-bar-labels">
+          <div class="soc-bar__labels">
             <span>0%</span><span>25%</span><span>50%</span><span>75%</span><span>100%</span>
           </div>
         </div>
 
-        <div class="nammi-notes" id="resNotes"></div>
+        <div class="calc-notes" id="resNotes"></div>
       </div>
 
     </div>
@@ -189,11 +189,11 @@ permalink: /nammi/
     <div class="card-grid two-col">
 
       <div class="card">
-        <div class="job-top">
-          <div><div class="job-company">AC Charging</div><div class="job-role">Type 2 · On-board charger</div></div>
-          <span class="job-date">Max 6.6 kW</span>
+        <div class="card-header">
+          <div><div class="card-title">AC Charging</div><div class="card-subtitle">Type 2 · On-board charger</div></div>
+          <span class="card-meta">Max 6.6 kW</span>
         </div>
-        <p class="job-desc">
+        <p class="card-body">
           Single-phase on-board charger limited to <span class="hl">6.6 kW</span>, even on 3-phase Type 2 connections.
           Full 0→100% on a 3.3 kW portable charger: ~<span class="hl">13h</span>. On a Type 2 wallbox at 6.6 kW: ~<span class="hl">7h 15m</span>.
           Charge speed: ~35 km/h equivalent range at max AC.
@@ -201,11 +201,11 @@ permalink: /nammi/
       </div>
 
       <div class="card">
-        <div class="job-top">
-          <div><div class="job-company">DC Fast Charging</div><div class="job-role">CCS2 (CCS Combo 2)</div></div>
-          <span class="job-date">Max 60 kW</span>
+        <div class="card-header">
+          <div><div class="card-title">DC Fast Charging</div><div class="card-subtitle">CCS2 (CCS Combo 2)</div></div>
+          <span class="card-meta">Max 60 kW</span>
         </div>
-        <p class="job-desc">
+        <p class="card-body">
           Peak DC: <span class="hl">60 kW</span>. Average 10→80%: <span class="hl">51 kW</span>.
           10→80% on a 100 kW charger takes ~<span class="hl">35 minutes</span>. On a 50 kW charger: ~<span class="hl">44 minutes</span>.
           DC tapers significantly above 80% SOC. Autocharge supported; Plug &amp; Charge not supported.
@@ -213,11 +213,11 @@ permalink: /nammi/
       </div>
 
       <div class="card">
-        <div class="job-top">
-          <div><div class="job-company">Battery</div><div class="job-role">LFP · 400V Architecture</div></div>
-          <span class="job-date">42.3 kWh nominal</span>
+        <div class="card-header">
+          <div><div class="card-title">Battery</div><div class="card-subtitle">LFP · 400V Architecture</div></div>
+          <span class="card-meta">42.3 kWh nominal</span>
         </div>
-        <p class="job-desc">
+        <p class="card-body">
           Lithium Iron Phosphate. <span class="hl">No memory effect</span> — charge to 100% daily without degradation.
           Battery warranty: <span class="hl">8 years / 200,000 km</span>. WLTP range: 310 km.
           Real-world range: ~<span class="hl">255 km</span> (city mild weather: up to 385 km).
@@ -225,22 +225,22 @@ permalink: /nammi/
       </div>
 
       <div class="card">
-        <div class="job-top">
-          <div><div class="job-company">V2L · Vehicle-to-Load</div><div class="job-role">External power output</div></div>
-          <span class="job-date">3.6 kW AC</span>
+        <div class="card-header">
+          <div><div class="card-title">V2L · Vehicle-to-Load</div><div class="card-subtitle">External power output</div></div>
+          <span class="card-meta">3.6 kW AC</span>
         </div>
-        <p class="job-desc">
+        <p class="card-body">
           Supports <span class="hl">V2L at 3.6 kW</span> via Type 2 adapter — can power appliances, tools, or charge other devices from the car.
           Does not support V2H or V2G. Euro NCAP 2025: <span class="hl">Adult 69%</span>, Child 81%, Safety Assist 77%.
         </p>
       </div>
 
       <div class="card">
-        <div class="job-top">
-          <div><div class="job-company">Performance</div><div class="job-role">Front-wheel drive</div></div>
-          <span class="job-date">70 kW · 160 Nm</span>
+        <div class="card-header">
+          <div><div class="card-title">Performance</div><div class="card-subtitle">Front-wheel drive</div></div>
+          <span class="card-meta">70 kW · 160 Nm</span>
         </div>
-        <p class="job-desc">
+        <p class="card-body">
           0–100 km/h: <span class="hl">12.5 sec</span>. Top speed: <span class="hl">140 km/h</span>.
           Real-world efficiency: ~<span class="hl">157 Wh/km</span> combined. City mild weather: 104 Wh/km.
           Fuel equivalent: ~1.8 L/100km.
@@ -248,11 +248,11 @@ permalink: /nammi/
       </div>
 
       <div class="card">
-        <div class="job-top">
-          <div><div class="job-company">Dimensions</div><div class="job-role">B-segment Hatchback</div></div>
-          <span class="job-date">4020 × 1810 × 1570 mm</span>
+        <div class="card-header">
+          <div><div class="card-title">Dimensions</div><div class="card-subtitle">B-segment Hatchback</div></div>
+          <span class="card-meta">4020 × 1810 × 1570 mm</span>
         </div>
-        <p class="job-desc">
+        <p class="card-body">
           Wheelbase: <span class="hl">2663 mm</span>. Cargo: <span class="hl">326 L</span> (945 L max). Kerb weight: 1430 kg.
           Seats 5. Towing: 750 kg braked. Charge port: <span class="hl">right side, front</span>.
         </p>
@@ -269,290 +269,17 @@ permalink: /nammi/
       <a href="/">Home</a>
     </div>
   </footer>
-</div><!-- end .wrapper -->
-</div><!-- end .page-nammi -->
-
-<style>
-/* ── NAMMI PAGE OVERRIDES (scoped to .page-nammi) ─────────── */
-.page-nammi {
-
-  /* ── Preset grid ──────────────────────────────────────── */
-  .nammi-preset-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-    gap: 8px;
-    margin-top: 6px;
-  }
-
-  .nammi-preset {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 12px 14px;
-    cursor: pointer;
-    text-align: left;
-    transition: all 0.2s;
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-
-    &:hover {
-      border-color: var(--border-hover);
-      background: var(--card-hover);
-    }
-
-    &.active {
-      border-color: var(--blue);
-      background: rgba(59,130,246,0.1);
-    }
-  }
-
-  .nammi-preset-name {
-    font-family: var(--sans);
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--text);
-  }
-
-  .nammi-preset-sub {
-    font-family: var(--mono);
-    font-size: 12px;
-    color: var(--text-muted);
-  }
-
-  /* ── Field groups ─────────────────────────────────────── */
-  .nammi-field-group {
-    margin-bottom: 28px;
-
-    &:last-child { margin-bottom: 0; }
-  }
-
-  .nammi-input-card {
-    display: flex;
-    flex-direction: column;
-  }
-
-  /* ── Inputs ───────────────────────────────────────────── */
-  .nammi-input-row {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-top: 6px;
-  }
-
-  .nammi-input {
-    background: rgba(255,255,255,0.04);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    color: var(--text);
-    font-family: var(--mono);
-    font-size: 16px;
-    padding: 9px 14px;
-    width: 110px;
-    transition: border-color 0.2s;
-    -moz-appearance: textfield;
-
-    &::-webkit-outer-spin-button,
-    &::-webkit-inner-spin-button { -webkit-appearance: none; }
-
-    &:focus {
-      outline: none;
-      border-color: var(--blue);
-    }
-  }
-
-  .nammi-input-sm {
-    width: 66px;
-    text-align: center;
-  }
-
-  .nammi-unit {
-    font-family: var(--mono);
-    font-size: 14px;
-    color: var(--text-muted);
-  }
-
-  .nammi-speed-label {
-    font-family: var(--mono);
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    padding: 4px 12px;
-    border-radius: 100px;
-    border: 1px solid transparent;
-
-    &.slow { color: #f59e0b; background: rgba(245,158,11,0.1);  border-color: rgba(245,158,11,0.3);  }
-    &.ac   { color: var(--cyan);  background: rgba(6,182,212,0.1);  border-color: rgba(6,182,212,0.3);  }
-    &.dc   { color: var(--green); background: rgba(16,185,129,0.1); border-color: rgba(16,185,129,0.3); }
-  }
-
-  .nammi-hint {
-    font-family: var(--mono);
-    font-size: 12px;
-    color: var(--text-muted);
-    margin-top: 6px;
-    min-height: 16px;
-  }
-
-  /* ── SOC Sliders ──────────────────────────────────────── */
-  .nammi-soc-row {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-top: 8px;
-  }
-
-  .nammi-soc-label {
-    font-family: var(--mono);
-    font-size: 13px;
-    color: var(--text-muted);
-    width: 46px;
-    flex-shrink: 0;
-  }
-
-  .nammi-slider {
-    flex: 1;
-    -webkit-appearance: none;
-    height: 5px;
-    border-radius: 3px;
-    background: rgba(59,130,246,0.15);
-    outline: none;
-    cursor: pointer;
-
-    &::-webkit-slider-thumb {
-      -webkit-appearance: none;
-      width: 18px;
-      height: 18px;
-      border-radius: 50%;
-      background: var(--blue-bright);
-      border: 2px solid var(--bg);
-      cursor: pointer;
-      transition: transform 0.15s;
-
-      &:hover { transform: scale(1.2); }
-    }
-  }
-
-  /* ── Results card ─────────────────────────────────────── */
-  .nammi-results-card {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .nammi-result-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    padding: 14px 0;
-  }
-
-  .nammi-result-label {
-    font-family: var(--mono);
-    font-size: 13px;
-    color: var(--text-muted);
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-  }
-
-  .nammi-result-value {
-    font-family: var(--mono);
-    font-size: 24px;
-    font-weight: 600;
-    color: var(--blue-bright);
-  }
-
-  .nammi-result-primary {
-    font-size: 32px;
-  }
-
-  .nammi-result-soc {
-    font-size: 18px;
-    letter-spacing: 0.05em;
-  }
-
-  .nammi-result-divider {
-    height: 1px;
-    background: var(--border);
-  }
-
-  /* ── SOC bar ──────────────────────────────────────────── */
-  .nammi-bar-wrap {
-    margin-top: 20px;
-  }
-
-  .nammi-bar-track {
-    height: 12px;
-    border-radius: 6px;
-    background: rgba(255,255,255,0.05);
-    border: 1px solid var(--border);
-    position: relative;
-    overflow: hidden;
-  }
-
-  .nammi-bar-fill {
-    position: absolute;
-    top: 0; bottom: 0;
-    background: linear-gradient(90deg, var(--blue), var(--cyan));
-    border-radius: 6px;
-    transition: left 0.3s, width 0.3s;
-  }
-
-  .nammi-bar-start {
-    position: absolute;
-    top: 0; bottom: 0;
-    width: 2px;
-    background: rgba(255,255,255,0.3);
-    transition: left 0.3s;
-  }
-
-  .nammi-bar-labels {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 5px;
-
-    span {
-      font-family: var(--mono);
-      font-size: 11px;
-      color: var(--text-muted);
-    }
-  }
-
-  /* ── Notes ────────────────────────────────────────────── */
-  .nammi-notes {
-    margin-top: 16px;
-    font-family: var(--mono);
-    font-size: 12px;
-    color: var(--text-muted);
-    line-height: 1.8;
-    min-height: 20px;
-  }
-
-  /* ── Responsive ───────────────────────────────────────── */
-  @media (max-width: 680px) {
-    .nammi-preset-grid   { grid-template-columns: repeat(2, 1fr); }
-    .nammi-result-value  { font-size: 20px; }
-    .nammi-result-primary { font-size: 26px; }
-  }
-
-  /* ── Print ────────────────────────────────────────────── */
-  @media print {
-    .nammi-preset-grid, .nammi-slider { display: none; }
-    .nammi-result-value { color: #000; }
-  }
-
-} /* end .page-nammi */
-</style>
+  </div>
+</div><!-- end .gino-page -->
 
 <script>
-const NOMINAL_KWH = 42.3;
-const USABLE_KWH  = 42.3;
-const AC_MAX      = 6.6;
-const DC_MAX      = 60;
-let currentPower  = 60;
+const USABLE_KWH = 42.3;
+const AC_MAX     = 6.6;
+const DC_MAX     = 60;
+let currentPower = 60;
 
 function selectPreset(el) {
-  document.querySelectorAll('.nammi-preset').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.preset-btn').forEach(b => b.classList.remove('active'));
   el.classList.add('active');
   const kw = parseFloat(el.dataset.kw);
   document.getElementById('inputPower').value = kw;
@@ -564,7 +291,7 @@ function selectPreset(el) {
 function onManualPower(input) {
   const kw = parseFloat(input.value);
   if (!isNaN(kw) && kw > 0) {
-    document.querySelectorAll('.nammi-preset').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.preset-btn').forEach(b => b.classList.remove('active'));
     currentPower = kw;
     updateSpeedLabel(kw);
     calculate();
@@ -574,7 +301,7 @@ function onManualPower(input) {
 function updateSpeedLabel(kw) {
   const el   = document.getElementById('speedLabel');
   const hint = document.getElementById('powerHint');
-  el.className = 'nammi-speed-label';
+  el.className = 'speed-label';
   if (kw <= 2.4) {
     el.textContent = 'Slow AC'; el.classList.add('slow');
   } else if (kw <= AC_MAX) {
@@ -626,7 +353,6 @@ function calculate() {
   const eff    = parseFloat(document.getElementById('inputEfficiency').value) || 10;
   if (!power || power <= 0 || start >= target) return;
 
-  // Use nominal 42.3 kWh for capacity display; usable for energy calc
   const delta  = (target - start) / 100;
   const energy = USABLE_KWH * delta;
   const time   = energy / power;

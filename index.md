@@ -11,7 +11,7 @@ layout: blank
 </head>
 <body>
 
-<div class="page-index">
+<div class="gino-page">
   <div class="wrapper">
   <div class="cursor-glow" id="cursorGlow"></div>
 
@@ -22,11 +22,11 @@ layout: blank
         <div class="badge">Available for opportunities - Local and abroad · Metro Manila, Philippines</div>
         <h1>Eugenio Emmanuel <span class="h1-accent">(Gino)</span><br>Araullo</h1>
         <div class="title-line">// Product Manager at Huawei covering Finance, Electric, Commercial, and Conglomerate Industries</div>
-        <div class="contact-grid">
-          <a class="contact-chip" href="mailto:hello@gino.media">hello@gino.media</a>
-          <a class="contact-chip" href="mailto:gino.araullo@gmail.com">gino.araullo@gmail.com</a>
-          <a class="contact-chip" href="https://linkedin.com/in/ginomedia" target="_blank">Connect with me on LinkedIn</a>
-          <a class="contact-chip" href="https://www.behance.net/ginomedia" target="_blank">Graphic Design Work</a>
+        <div class="chip-row">
+          <a class="chip" href="mailto:hello@gino.media">hello@gino.media</a>
+          <a class="chip" href="mailto:gino.araullo@gmail.com">gino.araullo@gmail.com</a>
+          <a class="chip" href="https://linkedin.com/in/ginomedia" target="_blank">Connect with me on LinkedIn</a>
+          <a class="chip" href="https://www.behance.net/ginomedia" target="_blank">Graphic Design Work</a>
         </div>
       </div>
       <div class="stat-stack">
@@ -52,8 +52,8 @@ layout: blank
       </div>
       <div class="award-org-name">Accenture</div>
       <div class="award-event">Program the Future 2020</div>
-      <div class="award-desc-badge">National-level competition. Fintech solution for PUV modernization and driver-franchise income generation.</div>
-      <div class="award-year-tag">2020</div>
+      <div class="award-desc">National-level competition. Fintech solution for PUV modernization and driver-franchise income generation.</div>
+      <div class="award-year">2020</div>
     </div>
 
     <!-- NASA -->
@@ -69,8 +69,8 @@ layout: blank
       </div>
       <div class="award-org-name">NASA Space Apps</div>
       <div class="award-event">Space Apps Philippines 2018</div>
-      <div class="award-desc-badge">Local grand prize for international hackathon. Hosted by US Embassy & DLSU. Featured on ABS-CBN and ANC.</div>
-      <div class="award-year-tag">2018</div>
+      <div class="award-desc">Local grand prize for international hackathon. Hosted by US Embassy & DLSU. Featured on ABS-CBN and ANC.</div>
+      <div class="award-year">2018</div>
     </div>
 
     <!-- APYE -->
@@ -87,8 +87,8 @@ layout: blank
       </div>
       <div class="award-org-name">Asia Pacific Youth Exchange</div>
       <div class="award-event">International Ideation Competition</div>
-      <div class="award-desc-badge">Water conservation solution for Oslob, Cebu: up to 20% water savings for locals. Sponsored by ADB and Yonsei University.</div>
-      <div class="award-year-tag">2019</div>
+      <div class="award-desc">Water conservation solution for Oslob, Cebu: up to 20% water savings for locals. Sponsored by ADB and Yonsei University.</div>
+      <div class="award-year">2019</div>
     </div>
 
   </div>
@@ -96,7 +96,7 @@ layout: blank
   <!-- OVERVIEW -->
   <div class="section">
     <div class="section-header"><span class="section-tag">Overview</span><div class="section-line"></div></div>
-    <div class="overview-text">
+    <div class="prose-block">
       <p>Product manager and pre-sales storage solutions engineer at <span class="hl">Huawei Technologies Philippines — Enterprise Business Group</span>. Handles ICT datacenter storage and server sales for clients across the Financial, Electrical, Commercial, and Conglomerate industries. Work covers the entire B2B cycle: from architecting tailored solutions, conducting proof-of-concept deployments, developing client relationships, and creating industry and customer-specific solutions and quotations. Within year one at Huawei, gained trust and solved customer problems while also studying and achieving <span class="hl">three progressive Huawei storage and sales certifications</span> — closing <span class="hl">$400K in deals within the first three months</span> of handling accounts.</p>
       <p>Prior to the current role, experience spans software engineering, UX and graphic design, client relationship management, project management, and product development across startups, government contracts, and freelance engagements.</p>
       <p>Also a published researcher and consistent competition presence during university — with papers at <span class="hl">HCI International</span> and the <span class="hl">International Conference on Software Technology and Engineering</span>, and wins at the national and international level: <span class="hl">Grand Champion at Accenture's Program the Future 2020, Global Nominee at NASA Space Apps Philippines 2018 (later featured on ABS-CBN and ANC), and Best Pitch and Best Idea at the 8th Asia Pacific Youth Exchange 2019.</span></p>
@@ -108,60 +108,60 @@ layout: blank
     <div class="section-header"><span class="section-tag">Experience</span><div class="section-line"></div></div>
     <div class="card-grid">
       <div class="card">
-        <div class="job-top">
-          <div><div class="job-company">Huawei Technologies Philippines</div><div class="job-role">Product Manager & Storage Solutions Engineer</div></div>
-          <span class="job-date">Oct 2024 – Present</span>
+        <div class="card-header">
+          <div><div class="card-title">Huawei Technologies Philippines</div><div class="card-subtitle">Product Manager & Storage Solutions Engineer</div></div>
+          <span class="card-meta">Oct 2024 – Present</span>
         </div>
-        <p class="job-desc">Full-time product manager and pre-sales engineer for Huawei Enterprise Business Group — Data Storage. Manages B2B sales and presales pipelines across Financial, Electrical, Commercial, and Conglomerate industries. <strong style="color:var(--blue-bright)">Closed $400K in deals within the first 3 months</strong> of handling accounts. Crafts tailored storage architectures, delivers client presentations, develops proposals and price quotations, and conducts proof-of-concept testing. Engages in executive-level and technical discussions to ensure solution deployments meet business goals. Earned HCSA, HCSP, and HCSE Presales-Storage certifications within 12 months.</p>
+        <p class="card-body">Full-time product manager and pre-sales engineer for Huawei Enterprise Business Group — Data Storage. Manages B2B sales and presales pipelines across Financial, Electrical, Commercial, and Conglomerate industries. <strong class="hl">Closed $400K in deals within the first 3 months</strong> of handling accounts. Crafts tailored storage architectures, delivers client presentations, develops proposals and price quotations, and conducts proof-of-concept testing. Engages in executive-level and technical discussions to ensure solution deployments meet business goals. Earned HCSA, HCSP, and HCSE Presales-Storage certifications within 12 months.</p>
       </div>
       <div class="card">
-        <div class="job-top">
-          <div><div class="job-company">Edispo PH</div><div class="job-role">Project Manager, Web Developer & Graphic Designer</div></div>
-          <span class="job-date">Oct 2021 – Sep 2025</span>
+        <div class="card-header">
+          <div><div class="card-title">Edispo PH</div><div class="card-subtitle">Project Manager, Web Developer & Graphic Designer</div></div>
+          <span class="card-meta">Oct 2021 – Sep 2025</span>
         </div>
-        <p class="job-desc">Led end-to-end conceptualization, design, and development of an online marketplace for e-waste management and sustainability. Owned the product roadmap, managed front-end development (HTML, CSS, SCSS, Ruby on Rails), and co-authored the company's brand manual. Delivered a full-stack product from zero to launch.</p>
+        <p class="card-body">Led end-to-end conceptualization, design, and development of an online marketplace for e-waste management and sustainability. Owned the product roadmap, managed front-end development (HTML, CSS, SCSS, Ruby on Rails), and co-authored the company's brand manual. Delivered a full-stack product from zero to launch.</p>
       </div>
       <div class="card">
-        <div class="job-top">
-          <div><div class="job-company">ADVNC Inc (Siemens Distributor)</div><div class="job-role">Web Developer and Project Manager</div></div>
-          <span class="job-date">Oct 2022 – Nov 2025</span>
+        <div class="card-header">
+          <div><div class="card-title">ADVNC Inc (Siemens Distributor)</div><div class="card-subtitle">Web Developer and Project Manager</div></div>
+          <span class="card-meta">Oct 2022 – Nov 2025</span>
         </div>
-        <p class="job-desc">Planned, designed, and built the online showroom from scratch for a Siemens advanced electrical equipment supplier. Delivered a responsive, brand-aligned front-end experience managed independently from brief to deployment.</p>
+        <p class="card-body">Planned, designed, and built the online showroom from scratch for a Siemens advanced electrical equipment supplier. Delivered a responsive, brand-aligned front-end experience managed independently from brief to deployment.</p>
       </div>
       <div class="card">
-        <div class="job-top">
-          <div><div class="job-company">Department of Energy Philippines</div><div class="job-role">Training Module Lead Editor & Designer</div></div>
-          <span class="job-date">Dec 2022 – Feb 2023</span>
+        <div class="card-header">
+          <div><div class="card-title">Department of Energy Philippines</div><div class="card-subtitle">Training Module Lead Editor & Designer</div></div>
+          <span class="card-meta">Dec 2022 – Feb 2023</span>
         </div>
-        <p class="job-desc">Contracted by the DOE to produce an eLearning accreditation and training module for Recognized Training Institutes teaching certified energy managers. Led editing, layout, and full design using Adobe InDesign and Illustrator.</p>
+        <p class="card-body">Contracted by the DOE to produce an eLearning accreditation and training module for Recognized Training Institutes teaching certified energy managers. Led editing, layout, and full design using Adobe InDesign and Illustrator.</p>
       </div>
       <div class="card">
-        <div class="job-top">
-          <div><div class="job-company">You_Source Inc.</div><div class="job-role">Software Engineer Intern</div></div>
-          <span class="job-date">Apr 2023 – Jul 2023</span>
+        <div class="card-header">
+          <div><div class="card-title">You_Source Inc.</div><div class="card-subtitle">Software Engineer Intern</div></div>
+          <span class="card-meta">Apr 2023 – Jul 2023</span>
         </div>
-        <p class="job-desc">Software development intern under the User Experience Division. Designed and developed responsive web applications for internal and external clients, covering user journeys, frontend development (TypeScript, CSS, Figma), and QA via Azure DevOps.</p>
+        <p class="card-body">Software development intern under the User Experience Division. Designed and developed responsive web applications for internal and external clients, covering user journeys, frontend development (TypeScript, CSS, Figma), and QA via Azure DevOps.</p>
       </div>
       <div class="card">
-        <div class="job-top">
-          <div><div class="job-company">Archipelago Labs (PDAX)</div><div class="job-role">Digital Content Intern</div></div>
-          <span class="job-date">Mar 2023 – Jun 2023</span>
+        <div class="card-header">
+          <div><div class="card-title">Archipelago Labs (PDAX)</div><div class="card-subtitle">Digital Content Intern</div></div>
+          <span class="card-meta">Mar 2023 – Jun 2023</span>
         </div>
-        <p class="job-desc">Supported the core team of a tech startup incubator under the Philippine Digital Assets Exchange across logistics, marketing, communications, and research for the ALAB incubation program.</p>
+        <p class="card-body">Supported the core team of a tech startup incubator under the Philippine Digital Assets Exchange across logistics, marketing, communications, and research for the ALAB incubation program.</p>
       </div>
       <div class="card">
-        <div class="job-top">
-          <div><div class="job-company">Don Bosco Technical College</div><div class="job-role">Brand Consultant & Web Developer</div></div>
-          <span class="job-date">Oct 2018 – Mar 2020</span>
+        <div class="card-header">
+          <div><div class="card-title">Don Bosco Technical College</div><div class="card-subtitle">Brand Consultant & Web Developer</div></div>
+          <span class="card-meta">Oct 2018 – Mar 2020</span>
         </div>
-        <p class="job-desc">Led the institution's full rebrand — authored the Visual Identity System, created publication templates, updated logos and IDs, and launched a brand-new school website from scratch. Held internal seminars and consultations with departments across the institution.</p>
+        <p class="card-body">Led the institution's full rebrand — authored the Visual Identity System, created publication templates, updated logos and IDs, and launched a brand-new school website from scratch. Held internal seminars and consultations with departments across the institution.</p>
       </div>
       <div class="card">
-        <div class="job-top">
-          <div><div class="job-company">DayOne Media</div><div class="job-role">Co-Founder</div></div>
-          <span class="job-date">Jan 2020 – Present</span>
+        <div class="card-header">
+          <div><div class="card-title">DayOne Media</div><div class="card-subtitle">Co-Founder</div></div>
+          <span class="card-meta">Jan 2020 – Present</span>
         </div>
-        <p class="job-desc">Co-founded a content and media organization covering technology, culture, and entrepreneurship. Oversees brand identity, web presence, and content strategy.</p>
+        <p class="card-body">Co-founded a content and media organization covering technology, culture, and entrepreneurship. Oversees brand identity, web presence, and content strategy.</p>
       </div>
     </div>
   </div>
@@ -195,10 +195,10 @@ layout: blank
   <div class="section">
     <div class="section-header"><span class="section-tag">Certifications</span><div class="section-line"></div></div>
     <div class="card-grid two-col">
-      <div class="cert-group-card"><div class="cert-issuer">Huawei</div><div class="cert-list">HCSE Presales-Storage (Feb 2025)<br>HCSP Presales-Storage (Jan 2025)<br>HCSA Presales-Storage (Dec 2024)</div></div>
-      <div class="cert-group-card"><div class="cert-issuer">Google</div><div class="cert-list">Agile Project Management (2023)<br>Operating Systems Power User (2022)</div></div>
-      <div class="cert-group-card"><div class="cert-issuer">Cisco</div><div class="cert-list">CCNA: Switching, Routing & Wireless Essentials (2022)</div></div>
-      <div class="cert-group-card"><div class="cert-issuer">Other</div><div class="cert-list">Visual Elements of UI Design — CalArts (2022)<br>Deep Learning for Business — Yonsei University (2020)</div></div>
+      <div class="list-card"><div class="list-heading">Huawei</div><div class="list-body">HCSE Presales-Storage (Feb 2025)<br>HCSP Presales-Storage (Jan 2025)<br>HCSA Presales-Storage (Dec 2024)</div></div>
+      <div class="list-card"><div class="list-heading">Google</div><div class="list-body">Agile Project Management (2023)<br>Operating Systems Power User (2022)</div></div>
+      <div class="list-card"><div class="list-heading">Cisco</div><div class="list-body">CCNA: Switching, Routing & Wireless Essentials (2022)</div></div>
+      <div class="list-card"><div class="list-heading">Other</div><div class="list-body">Visual Elements of UI Design — CalArts (2022)<br>Deep Learning for Business — Yonsei University (2020)</div></div>
     </div>
   </div>
 
@@ -219,8 +219,8 @@ layout: blank
         </div>
         <div class="award-org-name">Accenture</div>
         <div class="award-event">Program the Future 2020</div>
-        <div class="award-desc-badge">National-level competition. Fintech solution for PUV modernization and driver income generation.</div>
-        <div class="award-year-tag">2020</div>
+        <div class="award-desc">National-level competition. Fintech solution for PUV modernization and driver income generation.</div>
+        <div class="award-year">2020</div>
       </div>
 
       <!-- NASA -->
@@ -236,8 +236,8 @@ layout: blank
         </div>
         <div class="award-org-name">NASA Space Apps</div>
         <div class="award-event">Space Apps Philippines 2018</div>
-        <div class="award-desc-badge">Local grand prize. Hosted with U.S. Embassy & DLSU. Featured on ABS-CBN and ANC.</div>
-        <div class="award-year-tag">2018</div>
+        <div class="award-desc">Local grand prize. Hosted with U.S. Embassy & DLSU. Featured on ABS-CBN and ANC.</div>
+        <div class="award-year">2018</div>
       </div>
 
       <!-- APYE -->
@@ -254,8 +254,8 @@ layout: blank
         </div>
         <div class="award-org-name">Asia Pacific Youth Exchange</div>
         <div class="award-event">APYE Philippines 8th</div>
-        <div class="award-desc-badge">Water conservation solution for Oslob, Cebu — up to 20% water savings for local establishments.</div>
-        <div class="award-year-tag">2019</div>
+        <div class="award-desc">Water conservation solution for Oslob, Cebu — up to 20% water savings for local establishments.</div>
+        <div class="award-year">2019</div>
       </div>
 
       <!-- SEAMEO -->
@@ -271,8 +271,8 @@ layout: blank
         </div>
         <div class="award-org-name">SEAMEO</div>
         <div class="award-event">Southeast Asia Creative Camp</div>
-        <div class="award-desc-badge">International entrepreneurial innovation competition, Indonesia.</div>
-        <div class="award-year-tag">2018</div>
+        <div class="award-desc">International entrepreneurial innovation competition, Indonesia.</div>
+        <div class="award-year">2018</div>
       </div>
 
       <!-- DON BOSCO FILM -->
@@ -289,8 +289,8 @@ layout: blank
         </div>
         <div class="award-org-name">Don Bosco Film Festival</div>
         <div class="award-event">4th Don Bosco Film Festival</div>
-        <div class="award-desc-badge">Documentary "Give Me Souls" — Best Documentary, Best Story, Best Editing.</div>
-        <div class="award-year-tag">2018</div>
+        <div class="award-desc">Documentary "Give Me Souls" — Best Documentary, Best Story, Best Editing.</div>
+        <div class="award-year">2018</div>
       </div>
 
       <!-- CINEMATOGRAPHY -->
@@ -309,8 +309,8 @@ layout: blank
         </div>
         <div class="award-org-name">Don Bosco Film Festival</div>
         <div class="award-event">2nd, 2nd & 3rd DBTC Film Festivals</div>
-        <div class="award-desc-badge">Best Cinematography across Short Film and Documentary categories (2015, 2016, 2017).</div>
-        <div class="award-year-tag">2015–2017</div>
+        <div class="award-desc">Best Cinematography across Short Film and Documentary categories (2015, 2016, 2017).</div>
+        <div class="award-year">2015–2017</div>
       </div>
 
     </div>
@@ -320,9 +320,9 @@ layout: blank
   <div class="section">
     <div class="section-header"><span class="section-tag">Skills & Tech</span><div class="section-line"></div></div>
     <div class="card-grid two-col">
-      <div class="skill-card">
-        <div class="skill-label">Core</div>
-        <div class="tag-wrap">
+      <div class="list-card">
+        <div class="list-label">Core</div>
+        <div class="tag-row">
           <span class="tag">Product Management</span><span class="tag">Pre-Sales Engineering</span>
           <span class="tag">B2B Sales</span><span class="tag">UX/UI Design</span>
           <span class="tag">Frontend Dev</span><span class="tag">Graphic Design</span>
@@ -330,9 +330,9 @@ layout: blank
           <span class="tag">Public Speaking</span>
         </div>
       </div>
-      <div class="skill-card">
-        <div class="skill-label">Tech Stack</div>
-        <div class="tag-wrap">
+      <div class="list-card">
+        <div class="list-label">Tech Stack</div>
+        <div class="tag-row">
           <span class="tag">HTML</span><span class="tag">CSS / SCSS</span>
           <span class="tag">JavaScript</span><span class="tag">TypeScript</span>
           <span class="tag">PHP</span><span class="tag">SQL</span><span class="tag">Ruby</span>
@@ -340,9 +340,9 @@ layout: blank
           <span class="tag">Photoshop</span><span class="tag">InDesign</span><span class="tag">Premiere Pro</span>
         </div>
       </div>
-      <div class="skill-card">
-        <div class="skill-label">Tools & Platforms</div>
-        <div class="tag-wrap">
+      <div class="list-card">
+        <div class="list-label">Tools & Platforms</div>
+        <div class="tag-row">
           <span class="tag">Azure DevOps</span><span class="tag">AWS</span>
           <span class="tag">Notion</span><span class="tag">AutoCAD</span>
           <span class="tag">Microsoft Office</span><span class="tag">Slack</span>
@@ -359,8 +359,8 @@ layout: blank
       <a href="mailto:gino.araullo@gmail.com">gino@gino.media</a>
     </div>
   </footer>
-</div>
-</div><!-- end .page-index -->
+  </div>
+</div><!-- end .gino-page -->
 
 <script>
   const glow = document.getElementById('cursorGlow');
