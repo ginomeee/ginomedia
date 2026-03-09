@@ -13,6 +13,7 @@ permalink: /nammi/
 <body>
 
 <div class="page-index page-nammi">
+<div class="wrapper">
 
   <div class="cursor-glow" id="cursorGlow"></div>
 
@@ -258,7 +259,7 @@ permalink: /nammi/
       <a href="/">Home</a>
     </div>
   </footer>
-
+</div><!-- end .wrapper -->
 </div><!-- end .page-nammi -->
 
 <style>
