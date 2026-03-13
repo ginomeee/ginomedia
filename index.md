@@ -8,6 +8,8 @@ layout: blank
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<!-- Lucide icons (lightweight SVG icon set, no tree-shaking needed for small use) -->
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 </head>
 <body>
 
@@ -29,10 +31,30 @@ layout: blank
           <a class="chip" href="https://www.behance.net/ginomedia" target="_blank">Graphic Design Work</a>
         </div>
       </div>
+
+      <!-- STAT CARDS — <a> tags link to their relevant sections -->
       <div class="stat-stack">
-        <div class="stat-card"><div class="stat-num">3x</div><div class="stat-label">International Competition wins</div></div>
-        <div class="stat-card"><div class="stat-num">3×</div><div class="stat-label">Huawei Certificates</div></div>
-        <div class="stat-card"><div class="stat-num">2x</div><div class="stat-label">Published research papers</div></div>
+        <a class="stat-card" href="#awards">
+          <div class="stat-icon"><i data-lucide="trophy"></i></div>
+          <div class="stat-text">
+            <div class="stat-num">3×</div>
+            <div class="stat-label">International Competition wins</div>
+          </div>
+        </a>
+        <a class="stat-card" href="#certifications">
+          <div class="stat-icon"><i data-lucide="badge-check"></i></div>
+          <div class="stat-text">
+            <div class="stat-num">5+</div>
+            <div class="stat-label">Professional Certifications</div>
+          </div>
+        </a>
+        <a class="stat-card" href="#education">
+          <div class="stat-icon"><i data-lucide="book-open"></i></div>
+          <div class="stat-text">
+            <div class="stat-num">2×</div>
+            <div class="stat-label">Published research papers</div>
+          </div>
+        </a>
       </div>
     </div>
   </header>
@@ -40,8 +62,8 @@ layout: blank
   <!-- AWARDS HERO (above fold) -->
   <div class="awards-grid">
 
-    <!-- ACCENTURE -->
-    <div class="award-badge">
+    <!-- ACCENTURE — clickable -->
+    <a class="award-badge" href="https://www.accenture.com/ph-en" target="_blank" rel="noopener">
       <div class="award-ribbon">Grand Champion</div>
       <div class="award-logo-wrap">
         <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -54,10 +76,10 @@ layout: blank
       <div class="award-event">Program the Future 2020</div>
       <div class="award-desc">National-level competition. Fintech solution for PUV modernization and driver-franchise income generation.</div>
       <div class="award-year">2020</div>
-    </div>
+    </a>
 
-    <!-- NASA -->
-    <div class="award-badge">
+    <!-- NASA — clickable -->
+    <a class="award-badge" href="https://www.spaceappschallenge.org" target="_blank" rel="noopener">
       <div class="award-ribbon">Global Nominee</div>
       <div class="award-logo-wrap">
         <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -71,9 +93,9 @@ layout: blank
       <div class="award-event">Space Apps Philippines 2018</div>
       <div class="award-desc">Local grand prize for international hackathon. Hosted by US Embassy & DLSU. Featured on ABS-CBN and ANC.</div>
       <div class="award-year">2018</div>
-    </div>
+    </a>
 
-    <!-- APYE -->
+    <!-- APYE — no URL yet, stays as div -->
     <div class="award-badge">
       <div class="award-ribbon">Best Pitch & Best Idea</div>
       <div class="award-logo-wrap">
@@ -107,72 +129,140 @@ layout: blank
   <div class="section">
     <div class="section-header"><span class="section-tag">Experience</span><div class="section-line"></div></div>
     <div class="card-grid">
+
       <div class="card">
         <div class="card-header">
-          <div><div class="card-title">Huawei Technologies Philippines</div><div class="card-subtitle">Product Manager & Storage Solutions Engineer</div></div>
-          <span class="card-meta">Oct 2024 – Present</span>
+          <div>
+            <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+              <div class="card-title">Huawei Technologies Philippines</div>
+              <span class="card-meta">Oct 2024 – Present</span>
+            </div>
+            <div class="card-subtitle">Product Manager & Storage Solutions Engineer</div>
+          </div>
+          <!-- LOGO SLOT: replace content with <img src="/assets/logos/huawei.svg" alt="Huawei"> when ready -->
+          <div class="card-logo card-logo--placeholder">HW</div>
         </div>
         <p class="card-body">Full-time product manager and pre-sales engineer for Huawei Enterprise Business Group — Data Storage. Manages B2B sales and presales pipelines across Financial, Electrical, Commercial, and Conglomerate industries. <strong class="hl">Closed $400K in deals within the first 3 months</strong> of handling accounts. Crafts tailored storage architectures, delivers client presentations, develops proposals and price quotations, and conducts proof-of-concept testing. Engages in executive-level and technical discussions to ensure solution deployments meet business goals. Earned HCSA, HCSP, and HCSE Presales-Storage certifications within 12 months.</p>
       </div>
+
       <div class="card">
         <div class="card-header">
-          <div><div class="card-title">Edispo PH</div><div class="card-subtitle">Project Manager, Web Developer & Graphic Designer</div></div>
-          <span class="card-meta">Oct 2021 – Sep 2025</span>
+          <div>
+            <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+              <div class="card-title">Edispo PH</div>
+              <span class="card-meta">Oct 2021 – Sep 2025</span>
+            </div>
+            <div class="card-subtitle">Project Manager, Web Developer & Graphic Designer</div>
+          </div>
+          <div class="card-logo card-logo--placeholder">ED</div>
         </div>
         <p class="card-body">Led end-to-end conceptualization, design, and development of an online marketplace for e-waste management and sustainability. Owned the product roadmap, managed front-end development (HTML, CSS, SCSS, Ruby on Rails), and co-authored the company's brand manual. Delivered a full-stack product from zero to launch.</p>
       </div>
+
       <div class="card">
         <div class="card-header">
-          <div><div class="card-title">ADVNC Inc (Siemens Distributor)</div><div class="card-subtitle">Web Developer and Project Manager</div></div>
-          <span class="card-meta">Oct 2022 – Nov 2025</span>
+          <div>
+            <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+              <div class="card-title">ADVNC Inc (Siemens Distributor)</div>
+              <span class="card-meta">Oct 2022 – Nov 2025</span>
+            </div>
+            <div class="card-subtitle">Web Developer and Project Manager</div>
+          </div>
+          <div class="card-logo card-logo--placeholder">AV</div>
         </div>
         <p class="card-body">Planned, designed, and built the online showroom from scratch for a Siemens advanced electrical equipment supplier. Delivered a responsive, brand-aligned front-end experience managed independently from brief to deployment.</p>
       </div>
+
       <div class="card">
         <div class="card-header">
-          <div><div class="card-title">Department of Energy Philippines</div><div class="card-subtitle">Training Module Lead Editor & Designer</div></div>
-          <span class="card-meta">Dec 2022 – Feb 2023</span>
+          <div>
+            <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+              <div class="card-title">Department of Energy Philippines</div>
+              <span class="card-meta">Dec 2022 – Feb 2023</span>
+            </div>
+            <div class="card-subtitle">Training Module Lead Editor & Designer</div>
+          </div>
+          <div class="card-logo card-logo--placeholder">DOE</div>
         </div>
         <p class="card-body">Contracted by the DOE to produce an eLearning accreditation and training module for Recognized Training Institutes teaching certified energy managers. Led editing, layout, and full design using Adobe InDesign and Illustrator.</p>
       </div>
+
       <div class="card">
         <div class="card-header">
-          <div><div class="card-title">You_Source Inc.</div><div class="card-subtitle">Software Engineer Intern</div></div>
-          <span class="card-meta">Apr 2023 – Jul 2023</span>
+          <div>
+            <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+              <div class="card-title">You_Source Inc.</div>
+              <span class="card-meta">Apr 2023 – Jul 2023</span>
+            </div>
+            <div class="card-subtitle">Software Engineer Intern</div>
+          </div>
+          <div class="card-logo card-logo--placeholder">YS</div>
         </div>
         <p class="card-body">Software development intern under the User Experience Division. Designed and developed responsive web applications for internal and external clients, covering user journeys, frontend development (TypeScript, CSS, Figma), and QA via Azure DevOps.</p>
       </div>
+
       <div class="card">
         <div class="card-header">
-          <div><div class="card-title">Archipelago Labs (PDAX)</div><div class="card-subtitle">Digital Content Intern</div></div>
-          <span class="card-meta">Mar 2023 – Jun 2023</span>
+          <div>
+            <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+              <div class="card-title">Archipelago Labs (PDAX)</div>
+              <span class="card-meta">Mar 2023 – Jun 2023</span>
+            </div>
+            <div class="card-subtitle">Digital Content Intern</div>
+          </div>
+          <div class="card-logo card-logo--placeholder">AL</div>
         </div>
         <p class="card-body">Supported the core team of a tech startup incubator under the Philippine Digital Assets Exchange across logistics, marketing, communications, and research for the ALAB incubation program.</p>
       </div>
+
       <div class="card">
         <div class="card-header">
-          <div><div class="card-title">Don Bosco Technical College</div><div class="card-subtitle">Brand Consultant & Web Developer</div></div>
-          <span class="card-meta">Oct 2018 – Mar 2020</span>
+          <div>
+            <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+              <div class="card-title">Don Bosco Technical College</div>
+              <span class="card-meta">Oct 2018 – Mar 2020</span>
+            </div>
+            <div class="card-subtitle">Brand Consultant & Web Developer</div>
+          </div>
+          <div class="card-logo card-logo--placeholder">DB</div>
         </div>
         <p class="card-body">Led the institution's full rebrand — authored the Visual Identity System, created publication templates, updated logos and IDs, and launched a brand-new school website from scratch. Held internal seminars and consultations with departments across the institution.</p>
       </div>
+
       <div class="card">
         <div class="card-header">
-          <div><div class="card-title">DayOne Media</div><div class="card-subtitle">Co-Founder</div></div>
-          <span class="card-meta">Jan 2020 – Present</span>
+          <div>
+            <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+              <div class="card-title">DayOne Media</div>
+              <span class="card-meta">Jan 2020 – Present</span>
+            </div>
+            <div class="card-subtitle">Co-Founder</div>
+          </div>
+          <div class="card-logo card-logo--placeholder">D1</div>
         </div>
         <p class="card-body">Co-founded a content and media organization covering technology, culture, and entrepreneurship. Oversees brand identity, web presence, and content strategy.</p>
       </div>
+
     </div>
   </div>
 
   <!-- EDUCATION -->
-  <div class="section">
+  <div class="section" id="education">
     <div class="section-header"><span class="section-tag">Education</span><div class="section-line"></div></div>
     <div class="card-grid two-col">
+
       <div class="card">
-        <div class="edu-school">Mapúa University</div>
-        <div class="edu-degree">B.S. Information Technology · Cybersecurity · 2019–2023<br>GWA: 1.65 · Full Academic Scholar (SY 2019–2020)</div>
+        <div class="edu-header">
+          <!--
+            LOGO SLOT: once you have the file, replace this div with:
+            <div class="edu-logo"><img src="/assets/logos/mapua.svg" alt="Mapúa University"></div>
+          -->
+          <div class="edu-logo edu-logo--placeholder">MU</div>
+          <div class="edu-info">
+            <div class="edu-school">Mapúa University</div>
+            <div class="edu-degree">B.S. Information Technology · Cybersecurity · 2019–2023<br>GWA: 1.65 · Full Academic Scholar (SY 2019–2020)</div>
+          </div>
+        </div>
         <div class="pub-card">
           <div class="pub-title">GovMark: A Local Government Benchmarking Webapp for the Philippine DILG</div>
           <div class="pub-venue">HCI International · May 2024</div>
@@ -184,31 +274,65 @@ layout: blank
           <p class="pub-desc">Penetration-tested a simulated e-commerce environment using BeEF and XSStrike to enumerate XSS vulnerabilities and generate actionable security recommendations.</p>
         </div>
       </div>
+
       <div class="card">
-        <div class="edu-school">University of Asia and the Pacific</div>
-        <div class="edu-degree">B.S. Information Technology · 2018–2019<br>GWA: 1.53 · 7th Highest GWA, School of Sciences and Engineering</div>
+        <div class="edu-header">
+          <!--
+            LOGO SLOT: once you have the file, replace this div with:
+            <div class="edu-logo"><img src="/assets/logos/uap.svg" alt="University of Asia and the Pacific"></div>
+          -->
+          <div class="edu-logo edu-logo--placeholder">UA&P</div>
+          <div class="edu-info">
+            <div class="edu-school">University of Asia and the Pacific</div>
+            <div class="edu-degree">B.S. Information Technology · 2018–2019<br>GWA: 1.53 · 7th Highest GWA, School of Sciences and Engineering</div>
+          </div>
+        </div>
       </div>
+
     </div>
   </div>
 
   <!-- CERTIFICATIONS -->
-  <div class="section">
+  <div class="section" id="certifications">
     <div class="section-header"><span class="section-tag">Certifications</span><div class="section-line"></div></div>
     <div class="card-grid two-col">
-      <div class="list-card"><div class="list-heading">Huawei</div><div class="list-body">HCSE Presales-Storage (Feb 2025)<br>HCSP Presales-Storage (Jan 2025)<br>HCSA Presales-Storage (Dec 2024)</div></div>
-      <div class="list-card"><div class="list-heading">Google</div><div class="list-body">Agile Project Management (2023)<br>Operating Systems Power User (2022)</div></div>
-      <div class="list-card"><div class="list-heading">Cisco</div><div class="list-body">CCNA: Switching, Routing & Wireless Essentials (2022)</div></div>
-      <div class="list-card"><div class="list-heading">Other</div><div class="list-body">Visual Elements of UI Design — CalArts (2022)<br>Deep Learning for Business — Yonsei University (2020)</div></div>
+      <!-- Huawei — clickable, update href to your actual Credly profile URL -->
+      <a class="list-card" href="https://www.credly.com" target="_blank" rel="noopener">
+        <div class="list-heading">Huawei</div>
+        <div class="list-body">
+          HCSE Presales-Storage (Feb 2025)<br>
+          HCSP Presales-Storage (Jan 2025)<br>
+          HCSA Presales-Storage (Dec 2024)
+        </div>
+      </a>
+      <!-- Google — add href when you have the Credly URL -->
+      <div class="list-card">
+        <div class="list-heading">Google</div>
+        <div class="list-body">Agile Project Management (2023)<br>Operating Systems Power User (2022)</div>
+      </div>
+      <!-- Cisco — add href when you have the Credly URL -->
+      <div class="list-card">
+        <div class="list-heading">Cisco</div>
+        <div class="list-body">CCNA: Switching, Routing & Wireless Essentials (2022)</div>
+      </div>
+      <!-- Other — no link needed -->
+      <div class="list-card">
+        <div class="list-heading">Other</div>
+        <div class="list-body">
+          Visual Elements of UI Design — CalArts (2022)<br>
+          Deep Learning for Business — Yonsei University (2020)
+        </div>
+      </div>
     </div>
   </div>
 
   <!-- AWARDS — BADGE STYLE -->
-  <div class="section">
+  <div class="section" id="awards">
     <div class="section-header"><span class="section-tag">Awards & Recognition</span><div class="section-line"></div></div>
     <div class="awards-grid">
 
-      <!-- ACCENTURE -->
-      <div class="award-badge">
+      <!-- ACCENTURE — clickable -->
+      <a class="award-badge" href="https://www.accenture.com/ph-en" target="_blank" rel="noopener">
         <div class="award-ribbon">Grand Champion</div>
         <div class="award-logo-wrap">
           <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -221,10 +345,10 @@ layout: blank
         <div class="award-event">Program the Future 2020</div>
         <div class="award-desc">National-level competition. Fintech solution for PUV modernization and driver income generation.</div>
         <div class="award-year">2020</div>
-      </div>
+      </a>
 
-      <!-- NASA -->
-      <div class="award-badge">
+      <!-- NASA — clickable -->
+      <a class="award-badge" href="https://www.spaceappschallenge.org" target="_blank" rel="noopener">
         <div class="award-ribbon">Global Nominee</div>
         <div class="award-logo-wrap">
           <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -238,9 +362,9 @@ layout: blank
         <div class="award-event">Space Apps Philippines 2018</div>
         <div class="award-desc">Local grand prize. Hosted with U.S. Embassy & DLSU. Featured on ABS-CBN and ANC.</div>
         <div class="award-year">2018</div>
-      </div>
+      </a>
 
-      <!-- APYE -->
+      <!-- APYE — no URL yet -->
       <div class="award-badge">
         <div class="award-ribbon">Best Pitch & Best Idea</div>
         <div class="award-logo-wrap">
@@ -258,7 +382,7 @@ layout: blank
         <div class="award-year">2019</div>
       </div>
 
-      <!-- SEAMEO -->
+      <!-- SEAMEO — no URL yet -->
       <div class="award-badge">
         <div class="award-ribbon">3rd Place</div>
         <div class="award-logo-wrap">
@@ -275,7 +399,7 @@ layout: blank
         <div class="award-year">2018</div>
       </div>
 
-      <!-- DON BOSCO FILM -->
+      <!-- DON BOSCO FILM — no URL yet -->
       <div class="award-badge">
         <div class="award-ribbon">Best Documentary · Story · Editing</div>
         <div class="award-logo-wrap">
@@ -293,7 +417,7 @@ layout: blank
         <div class="award-year">2018</div>
       </div>
 
-      <!-- CINEMATOGRAPHY -->
+      <!-- CINEMATOGRAPHY — no URL yet -->
       <div class="award-badge">
         <div class="award-ribbon">Best Cinematography ×3</div>
         <div class="award-logo-wrap">
@@ -363,10 +487,13 @@ layout: blank
 </div><!-- end .gino-page -->
 
 <script>
+  // Init Lucide icons after DOM is ready
+  lucide.createIcons();
+
   const glow = document.getElementById('cursorGlow');
   document.addEventListener('mousemove', e => {
     glow.style.left = e.clientX + 'px';
-    glow.style.top = e.clientY + 'px';
+    glow.style.top  = e.clientY + 'px';
   });
 
   const observer = new IntersectionObserver(entries => {
