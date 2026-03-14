@@ -24,6 +24,22 @@ Then open `http://localhost:4000`.
 
 This is a personal hobby project and not intended as a template or starter kit. Design and content are specific to my own CV and background.
 
+## Planned Features
+
+- [ ] **Theme toggle** (light/dark) with persistent preference  
+- [ ] Smooth scrolling and section navigation (sticky sidebar/nav chips)  
+- [ ] Downloadable PDF resume export (print-friendly stylesheet)  
+- [ ] “Jump to section” anchor links (experience, education, certifications, awards)  
+- [ ] Interactive timeline or collapsible accordion for work history  
+- [ ] Contact form with email forwarding (static form via Netlify/Forms or Formspree)  
+- [ ] Accessibility enhancements (keyboard nav, focus states, ARIA landmarks)  
+- [ ] Analytics (e.g. Plausible or simple hit counter)  
+- [ ] Feedback or CTA with calendar 
+- [ ] **Portfolio/project** showcase section with lightbox or embedded previews  
+- [ ] RSS/JSON feed for updates (new projects, publications, blog posts)  
+- [ ] **Print resume** mode to generate a clean PDF layout
+
+
 ---
 
 [gino.media](https://gino.media) · [linkedin.com/in/ginomedia](https://linkedin.com/in/ginomedia)
