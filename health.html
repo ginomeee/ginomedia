@@ -1,0 +1,606 @@
+---
+title: "FACT Log"
+description: "Food and Activity Continuous Tracking Log"
+style: "gino-index"
+layout: blank
+permalink: /health/
+---
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+
+<div class="gino-page">
+  <div class="wrapper">
+  <div class="cursor-glow" id="cursorGlow"></div>
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-inner">
+      <div>
+        <div class="badge">Food &amp; Activity Continuous Tracking Log</div>
+        <h1>FACT <span class="h1-accent">Log</span></h1>
+        <div class="title-line">// Daily health, weight, and activity tracker</div>
+        <div class="chip-row">
+          <a class="chip" href="/">← Back to gino.media</a>
+        </div>
+      </div>
+
+      <!-- DASHBOARD STATS — populated by JS from sheet -->
+      <div class="stat-stack">
+        <div class="stat-card">
+          <div class="stat-icon"><i data-lucide="scale"></i></div>
+          <div class="stat-text">
+            <div class="stat-num h-dash-val" id="dashWeight">—</div>
+            <div class="stat-label">kg · latest weight</div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon"><i data-lucide="trending-down"></i></div>
+          <div class="stat-text">
+            <div class="stat-num h-dash-val" id="dashDelta">—</div>
+            <div class="stat-label">kg · vs previous entry</div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon"><i data-lucide="activity"></i></div>
+          <div class="stat-text">
+            <div class="stat-num h-dash-val" id="dashActivity">—</div>
+            <div class="stat-label" id="dashActivityLabel">last activity</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- WEIGHT CHART -->
+  <div class="section visible">
+    <div class="section-header">
+      <span class="section-tag">Weight Trend</span>
+      <div class="section-line"></div>
+    </div>
+    <div class="card">
+      <div class="h-chart-wrap">
+        <canvas id="weightChart"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <!-- LOG FORM -->
+  <div class="section visible">
+    <div class="section-header">
+      <span class="section-tag">Log Entry</span>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="card-grid two-col">
+
+      <!-- LEFT: FORM -->
+      <div class="card">
+
+        <!-- TAB SWITCHER -->
+        <div class="h-tabs" style="grid-template-columns:1fr 1fr 1fr;">
+        <button class="h-tab h-tab--active" id="tabFood"     onclick="switchTab('food')">Food Log</button>
+        <button class="h-tab"               id="tabActivity"  onclick="switchTab('activity')">Activity</button>
+        <button class="h-tab"               id="tabWeight"    onclick="switchTab('weight')">Weight</button>
+        </div>
+
+        <!-- ── FOOD PANEL ─────────────────────────── -->
+        <div class="h-panel h-panel--active" id="panelFood">
+
+          <!-- Meal type -->
+          <div class="field-group">
+            <div class="h-field-label">Meal type</div>
+            <div class="h-chip-grid" id="mealTypeGrid">
+              <button class="h-chip h-chip--active" data-val="Meal"   onclick="selectChip('mealTypeGrid',this)">Meal</button>
+              <button class="h-chip"                data-val="Snack"  onclick="selectChip('mealTypeGrid',this)">Snack</button>
+              <button class="h-chip"                data-val="Drink"  onclick="selectChip('mealTypeGrid',this)">Drink</button>
+              <button class="h-chip"                data-val="Other"  onclick="selectChip('mealTypeGrid',this)">Other</button>
+            </div>
+          </div>
+
+          <!-- What food -->
+          <div class="field-group">
+            <div class="h-field-label">What did you eat / drink?</div>
+            <div class="input-row">
+              <input class="form-input" id="foodDesc" type="text"
+                placeholder="e.g. Chicken adobo, rice"
+                style="width:100%;max-width:100%;" />
+            </div>
+          </div>
+
+          <!-- Cost -->
+          <div class="field-group">
+            <div class="h-field-label">Cost</div>
+            <div class="input-row">
+              <span class="input-unit">₱</span>
+              <input class="form-input" id="foodCost" type="number" min="0" step="1" placeholder="0" />
+            </div>
+          </div>
+
+          <!-- Keto / diet friendly -->
+          <div class="field-group">
+            <div class="h-field-label">Keto / Diet friendly?</div>
+            <div class="h-toggle-row">
+              <span class="h-toggle-label">Mark as diet friendly</span>
+              <div class="h-toggle" id="dietToggle" onclick="this.classList.toggle('h-toggle--on')"></div>
+            </div>
+          </div>
+
+          <!-- Hunger scale -->
+          <div class="field-group">
+            <div class="h-field-label">Hunger before eating</div>
+            <div class="h-scale">
+              <span class="h-scale-end">Not hungry</span>
+              <div class="h-scale-dots" id="hungerScale">
+                <div class="h-scale-dot h-scale-dot--active" data-val="1" onclick="selectScale('hungerScale',this)">1</div>
+                <div class="h-scale-dot" data-val="2" onclick="selectScale('hungerScale',this)">2</div>
+                <div class="h-scale-dot" data-val="3" onclick="selectScale('hungerScale',this)">3</div>
+                <div class="h-scale-dot" data-val="4" onclick="selectScale('hungerScale',this)">4</div>
+                <div class="h-scale-dot" data-val="5" onclick="selectScale('hungerScale',this)">5</div>
+              </div>
+              <span class="h-scale-end">Very hungry</span>
+            </div>
+          </div>
+
+          <!-- Satiation scale -->
+          <div class="field-group">
+            <div class="h-field-label">Satiation after eating</div>
+            <div class="h-scale">
+              <span class="h-scale-end">Not full</span>
+              <div class="h-scale-dots" id="satiationScale">
+                <div class="h-scale-dot" data-val="1" onclick="selectScale('satiationScale',this)">1</div>
+                <div class="h-scale-dot" data-val="2" onclick="selectScale('satiationScale',this)">2</div>
+                <div class="h-scale-dot h-scale-dot--active" data-val="3" onclick="selectScale('satiationScale',this)">3</div>
+                <div class="h-scale-dot" data-val="4" onclick="selectScale('satiationScale',this)">4</div>
+                <div class="h-scale-dot" data-val="5" onclick="selectScale('satiationScale',this)">5</div>
+              </div>
+              <span class="h-scale-end">Very full</span>
+            </div>
+          </div>
+
+          <button class="h-submit" onclick="submitFood()">
+            Log Food Entry
+          </button>
+        </div>
+
+        <!-- ── ACTIVITY PANEL ────────────── -->
+        <div class="h-panel" id="panelActivity">
+          <!-- Activity type -->
+          <div class="field-group">
+            <div class="h-field-label">Activity type</div>
+            <div class="h-chip-grid" id="actTypeGrid">
+              <button class="h-chip h-chip--active" data-val="Walking"  onclick="selectChip('actTypeGrid',this)">Walking</button>
+              <button class="h-chip"                data-val="Running"  onclick="selectChip('actTypeGrid',this)">Running</button>
+              <button class="h-chip"                data-val="Gym"      onclick="selectChip('actTypeGrid',this)">Gym</button>
+              <button class="h-chip"                data-val="Cycling"  onclick="selectChip('actTypeGrid',this)">Cycling</button>
+              <button class="h-chip"                data-val="Swimming" onclick="selectChip('actTypeGrid',this)">Swimming</button>
+              <button class="h-chip"                data-val="Other"    onclick="selectChip('actTypeGrid',this)">Other</button>
+            </div>
+          </div>
+
+          <!-- Duration quick-pick -->
+          <div class="field-group">
+            <div class="h-field-label">Duration</div>
+            <div class="h-pill-row" id="durGroup">
+              <button class="h-pill"           data-val="15"    onclick="selectDur(this)">15m</button>
+              <button class="h-pill"           data-val="30"    onclick="selectDur(this)">30m</button>
+              <button class="h-pill h-pill--active" data-val="45" onclick="selectDur(this)">45m</button>
+              <button class="h-pill"           data-val="60"    onclick="selectDur(this)">60m</button>
+              <button class="h-pill"           data-val="90"    onclick="selectDur(this)">90m</button>
+              <button class="h-pill"           data-val="custom" onclick="selectDur(this)">Custom</button>
+            </div>
+            <div class="input-row" id="durCustomRow" style="display:none;margin-top:10px;">
+              <input class="form-input form-input--sm" id="durCustomInput"
+                type="number" min="1" max="600" placeholder="mins" />
+              <span class="input-unit">mins</span>
+            </div>
+          </div>
+
+          <button class="h-submit" onclick="submitActivity()">
+            Log Activity
+          </button>
+        </div>
+
+        <!-- ── WEIGHT PANEL ────────────────────────── -->
+        <div class="h-panel" id="panelWeight">
+          <div class="field-group">
+            <div class="h-field-label">Weight</div>
+            <div class="h-stepper">
+              <button class="h-stepper-btn" onclick="adjustWeight(-0.1)">−</button>
+              <input class="h-stepper-input" id="weightInput" type="number"
+                step="0.1" min="30" max="300" value="107.8" />
+              <span class="h-stepper-unit">kg</span>
+            </div>
+            <div class="field-hint" style="margin-top:8px;">
+              Weigh in the morning before eating for consistency
+            </div>
+          </div>
+          <button class="h-submit" onclick="submitWeight()">Log Weight</button>
+        </div><!-- end form card -->
+
+      </div><!-- end form card -->
+
+      <!-- RIGHT: RECENT LOG -->
+      <div class="card">
+        <div class="list-heading">Recent entries</div>
+        <div class="h-history">
+          <table class="h-table">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Type</th>
+                <th>Detail</th>
+                <th>Val</th>
+              </tr>
+            </thead>
+            <tbody id="historyBody">
+              <tr><td colspan="4" style="color:var(--text-muted);text-align:center;padding:20px;">Loading...</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <span class="footer-id">// FACT LOG · GINO.MEDIA · {{ site.time | date: "%Y" }}</span>
+    <div class="footer-links">
+      <a href="https://gino.media" target="_blank">gino.media</a>
+      <a href="/">Home</a>
+    </div>
+  </footer>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="h-toast" id="toast"></div>
+
+<script>
+// ── CONFIG — replace with your deployed Apps Script URL ──────
+const SCRIPT_URL = '{{ site.health_script_url }}';
+
+// ── STATE ────────────────────────────────────────────────────
+let allRows = [];
+
+// ── PASSWORD GATE ─────────────────────────────────────────────
+(function() {
+  const HASH = 'e462429afef395c6e76f491293abed36f15301b9269733ff6a79c0ac93cf16e1';
+  const key = 'health_auth';
+  if (sessionStorage.getItem(key) === HASH) return; // already authenticated this session
+
+  document.body.innerHTML = `
+    <div class="gino-page">
+      <div class="wrapper" style="display:flex;align-items:center;justify-content:center;min-height:100vh;">
+        <div class="card" style="max-width:340px;width:100%;text-align:center;">
+          <div class="badge" style="margin-bottom:16px;">FACT Log · Private</div>
+          <div class="title-line" style="margin-bottom:20px;">// Enter access password</div>
+          <div class="input-row" style="justify-content:center;margin-bottom:12px;">
+            <input class="form-input" id="gateInput" type="password"
+              placeholder="Password" style="width:100%;max-width:100%;"
+              onkeydown="if(event.key==='Enter')checkPass()" />
+          </div>
+          <button class="h-submit" onclick="checkPass()">Enter</button>
+          <div id="gateError" style="margin-top:12px;font-family:var(--mono);font-size:11px;color:#f87171;min-height:16px;"></div>
+        </div>
+      </div>
+    </div>`;
+
+  // inject fonts + lucide since head is already rendered
+  const link = document.createElement('link');
+  link.rel = 'stylesheet';
+  link.href = 'https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap';
+  document.head.appendChild(link);
+})();
+
+async function checkPass() {
+  const HASH = 'e462429afef395c6e76f491293abed36f15301b9269733ff6a79c0ac93cf16e1';
+  const key  = 'health_auth';
+  const val  = document.getElementById('gateInput').value;
+
+  const buf  = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(val));
+  const hash = Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2,'0')).join('');
+
+  if (hash === HASH) {
+    sessionStorage.setItem(key, HASH);
+    location.reload(); // reload now passes the session check
+  } else {
+    document.getElementById('gateError').textContent = 'Incorrect password';
+    document.getElementById('gateInput').value = '';
+    document.getElementById('gateInput').focus();
+  }
+}
+
+// ── INIT ─────────────────────────────────────────────────────
+document.addEventListener('DOMContentLoaded', () => {
+  lucide.createIcons();
+
+  const glow = document.getElementById('cursorGlow');
+  document.addEventListener('mousemove', e => {
+    glow.style.left = e.clientX + 'px';
+    glow.style.top  = e.clientY + 'px';
+  });
+
+  loadDashboard();
+});
+
+// ── TAB SWITCHING ─────────────────────────────────────────────
+function switchTab(tab) {
+  ['food','activity','weight'].forEach(t => {
+    document.getElementById('tab' + t.charAt(0).toUpperCase() + t.slice(1))
+      .classList.toggle('h-tab--active', t === tab);
+    document.getElementById('panel' + t.charAt(0).toUpperCase() + t.slice(1))
+      .classList.toggle('h-panel--active', t === tab);
+  });
+}
+
+// ── CHIP / SCALE SELECTION ────────────────────────────────────
+function selectChip(gridId, el) {
+  document.querySelectorAll('#' + gridId + ' .h-chip')
+    .forEach(c => c.classList.remove('h-chip--active'));
+  el.classList.add('h-chip--active');
+}
+
+function selectScale(scaleId, el) {
+  document.querySelectorAll('#' + scaleId + ' .h-scale-dot')
+    .forEach(d => d.classList.remove('h-scale-dot--active'));
+  el.classList.add('h-scale-dot--active');
+}
+
+function selectDur(el) {
+  document.querySelectorAll('#durGroup .h-pill')
+    .forEach(p => p.classList.remove('h-pill--active'));
+  el.classList.add('h-pill--active');
+  document.getElementById('durCustomRow').style.display =
+    el.dataset.val === 'custom' ? 'flex' : 'none';
+}
+
+// ── WEIGHT STEPPER ────────────────────────────────────────────
+function adjustWeight(delta) {
+  const inp = document.getElementById('weightInput');
+  inp.value = (parseFloat(inp.value || 0) + delta).toFixed(1);
+}
+
+// ── DASHBOARD LOAD ────────────────────────────────────────────
+async function loadDashboard() {
+  try {
+    const res  = await fetch(`${SCRIPT_URL}?limit=60`);
+    const json = await res.json();
+    if (json.status !== 'ok') return;
+
+    allRows = json.rows;
+    renderDashStats(allRows);
+    renderWeightChart(allRows);
+    renderHistory(allRows);
+  } catch (e) {
+    console.warn('Dashboard load failed:', e);
+    document.getElementById('historyBody').innerHTML =
+      '<tr><td colspan="4" style="color:var(--text-muted);text-align:center;padding:20px;">Could not load data</td></tr>';
+  }
+}
+
+function renderDashStats(rows) {
+  const weights = rows.filter(r => r.weightKG).map(r => ({
+    date: new Date(r.timestamp), val: parseFloat(r.weightKG)
+  })).sort((a,b) => b.date - a.date);
+
+  if (weights.length > 0) {
+    const latest = weights[0].val;
+    document.getElementById('dashWeight').textContent = latest.toFixed(1);
+
+    if (weights.length > 1) {
+      const prev  = weights[1].val;
+      const delta = (latest - prev).toFixed(1);
+      const el    = document.getElementById('dashDelta');
+      el.textContent = (delta > 0 ? '+' : '') + delta;
+      el.classList.add(delta > 0 ? 'h-dash-val--up' : delta < 0 ? 'h-dash-val--down' : 'h-dash-val--neutral');
+      // update stat-icon to match direction
+      const icon = document.querySelector('#dashDelta').closest('.stat-card').querySelector('i');
+      if (icon) {
+        icon.setAttribute('data-lucide', delta > 0 ? 'trending-up' : 'trending-down');
+        lucide.createIcons();
+      }
+    }
+  }
+
+  const activities = rows.filter(r => r.activityMins && r.activityType)
+    .sort((a,b) => new Date(b.timestamp) - new Date(a.timestamp));
+
+  if (activities.length > 0) {
+    const last = activities[0];
+    document.getElementById('dashActivity').textContent = last.activityMins + 'm';
+    const d = new Date(last.timestamp);
+    document.getElementById('dashActivityLabel').textContent =
+      last.activityType.split('/')[0].trim() + ' · ' +
+      d.toLocaleDateString('en-PH', { month: 'short', day: 'numeric' });
+  }
+}
+
+function renderWeightChart(rows) {
+  const weights = rows
+    .filter(r => r.weightKG && r.timestamp)
+    .sort((a,b) => new Date(a.timestamp) - new Date(b.timestamp))
+    .map(r => ({
+      x: new Date(r.timestamp).toLocaleDateString('en-PH', { month: 'short', day: 'numeric' }),
+      y: parseFloat(r.weightKG)
+    }));
+
+  if (weights.length < 2) return;
+
+  const ctx = document.getElementById('weightChart').getContext('2d');
+  new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: weights.map(w => w.x),
+      datasets: [{
+        data: weights.map(w => w.y),
+        borderColor: '#3b82f6',
+        backgroundColor: 'rgba(59,130,246,0.08)',
+        borderWidth: 2,
+        pointRadius: 3,
+        pointBackgroundColor: '#60a5fa',
+        tension: 0.3,
+        fill: true
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: { legend: { display: false } },
+      scales: {
+        x: {
+          ticks: {
+            color: '#64748b',
+            font: { family: 'JetBrains Mono', size: 10 },
+            maxTicksLimit: 8
+          },
+          grid: { color: 'rgba(59,130,246,0.06)' }
+        },
+        y: {
+          ticks: {
+            color: '#64748b',
+            font: { family: 'JetBrains Mono', size: 10 },
+            callback: v => v + ' kg'
+          },
+          grid: { color: 'rgba(59,130,246,0.06)' }
+        }
+      }
+    }
+  });
+}
+
+function renderHistory(rows) {
+  const sorted  = [...rows].sort((a,b) => new Date(b.timestamp) - new Date(a.timestamp)).slice(0, 20);
+  const tbody   = document.getElementById('historyBody');
+
+  if (!sorted.length) {
+    tbody.innerHTML = '<tr><td colspan="4" style="color:var(--text-muted);text-align:center;padding:20px;">No entries yet</td></tr>';
+    return;
+  }
+
+  tbody.innerHTML = sorted.map(r => {
+    const isFood    = r.type === 'Food';
+    const typeClass = isFood ? 'h-type-pill--food' : 'h-type-pill--activity';
+    const typeLabel = isFood ? 'Food' : 'Activity';
+    const detail    = isFood
+      ? (r.food || '—').substring(0, 28) + (r.food?.length > 28 ? '…' : '')
+      : (r.activityType || '').split('/')[0].trim() || '—';
+    const val       = isFood
+      ? (r.cost ? '₱' + r.cost : '—')
+      : (r.weightKG ? r.weightKG + ' kg' : r.activityMins ? r.activityMins + 'm' : '—');
+    const d = r.timestamp ? new Date(r.timestamp) : null;
+    const dateStr = d ? d.toLocaleDateString('en-PH', { month: 'short', day: 'numeric' }) : '—';
+
+    return `<tr>
+      <td>${dateStr}</td>
+      <td><span class="h-type-pill ${typeClass}">${typeLabel}</span></td>
+      <td>${detail}</td>
+      <td style="color:var(--blue-bright)">${val}</td>
+    </tr>`;
+  }).join('');
+}
+
+// ── SUBMIT: FOOD ──────────────────────────────────────────────
+async function submitFood() {
+  const food = document.getElementById('foodDesc').value.trim();
+  if (!food) { showToast('Please describe what you ate', 'error'); return; }
+
+  const btn = document.querySelector('#panelFood .h-submit');
+  btn.disabled = true;
+  btn.textContent = 'Logging...';
+
+  const payload = {
+    type:      'food',
+    foodType:  document.querySelector('#mealTypeGrid .h-chip--active')?.dataset.val || 'Meal',
+    food,
+    cost:      document.getElementById('foodCost').value || '0',
+    ketoDiet:  document.getElementById('dietToggle').classList.contains('h-toggle--on') ? 'Yes' : 'No',
+    hunger:    document.querySelector('#hungerScale .h-scale-dot--active')?.dataset.val || '',
+    satiation: document.querySelector('#satiationScale .h-scale-dot--active')?.dataset.val || ''
+  };
+
+  await postToSheet(payload);
+
+  // Reset form
+  document.getElementById('foodDesc').value = '';
+  document.getElementById('foodCost').value = '';
+  btn.disabled = false;
+  btn.textContent = 'Log Food Entry';
+}
+
+// ── SUBMIT: ACTIVITY ──────────────────────────────────────────
+async function submitActivity() {
+  const weightKG = parseFloat(document.getElementById('weightInput').value);
+  if (!weightKG || isNaN(weightKG)) { showToast('Please enter your weight', 'error'); return; }
+
+  const durPill   = document.querySelector('#durGroup .h-pill--active');
+  let activityMins = durPill?.dataset.val === 'custom'
+    ? parseInt(document.getElementById('durCustomInput').value)
+    : parseInt(durPill?.dataset.val || 45);
+
+  const btn = document.querySelector('#panelActivity .h-submit');
+  btn.disabled = true;
+  btn.textContent = 'Logging...';
+
+  const payload = {
+    type:         'activity',
+    weightKG:     weightKG.toFixed(1),
+    activityType: document.querySelector('#actTypeGrid .h-chip--active')?.dataset.val || '',
+    activityMins: activityMins || ''
+  };
+
+  await postToSheet(payload);
+  btn.disabled = false;
+  btn.textContent = 'Log Activity & Weight';
+}
+
+async function submitWeight() {
+  const weightKG = parseFloat(document.getElementById('weightInput').value);
+  if (!weightKG || isNaN(weightKG)) { showToast('Please enter your weight', 'error'); return; }
+
+  const btn = document.querySelector('#panelWeight .h-submit');
+  btn.disabled = true;
+  btn.textContent = 'Logging...';
+
+  await postToSheet({ type: 'activity', weightKG: weightKG.toFixed(1), activityType: '', activityMins: '' });
+
+  btn.disabled = false;
+  btn.textContent = 'Log Weight';
+}
+
+// ── SHARED POST ───────────────────────────────────────────────
+async function postToSheet(payload) {
+  try {
+    const res  = await fetch(SCRIPT_URL, {
+      method: 'POST',
+      body:   JSON.stringify(payload)
+    });
+    const json = await res.json();
+    if (json.status === 'ok') {
+      showToast('✓ Logged successfully', 'ok');
+      setTimeout(loadDashboard, 1200); // refresh dashboard
+    } else {
+      showToast('Error: ' + (json.message || 'unknown'), 'error');
+    }
+  } catch (e) {
+    showToast('Network error — check connection', 'error');
+  }
+}
+
+// ── TOAST ─────────────────────────────────────────────────────
+function showToast(msg, type = 'ok') {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.className = `h-toast h-toast--show h-toast--${type}`;
+  setTimeout(() => { t.className = 'h-toast'; }, 3000);
+}
+</script>
+</body>
+</html>
