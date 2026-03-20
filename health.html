@@ -27,7 +27,7 @@ permalink: /health/
         <h1>FACT <span class="h1-accent">Log</span></h1>
         <div class="title-line">// Daily health, weight, and activity tracker</div>
         <div class="chip-row">
-          <a class="chip" href="/">← Back to gino.media</a>
+          <a class="chip" href="/">← Back to gino.media</a> <a class="chip" href="#" onclick="logout()"><i data-lucide="lock" style="width:13px;height:13px;vertical-align:middle;margin-right:4px;"></i> Logout</a>
         </div>
       </div>
 
@@ -270,11 +270,16 @@ const SCRIPT_URL = '{{ site.health_script_url }}';
 // ── STATE ────────────────────────────────────────────────────
 let allRows = [];
 
+function logout() {
+  localStorage.removeItem('health_auth');
+  location.reload();
+}
+
 // ── PASSWORD GATE ─────────────────────────────────────────────
 (function() {
   const HASH = 'e462429afef395c6e76f491293abed36f15301b9269733ff6a79c0ac93cf16e1';
   const key = 'health_auth';
-  if (sessionStorage.getItem(key) === HASH) return; // already authenticated this session
+  if (localStorage.getItem(key) === HASH) return; // already authenticated this local storage session
 
   document.body.innerHTML = `
     <div class="gino-page">
@@ -309,8 +314,8 @@ async function checkPass() {
   const hash = Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2,'0')).join('');
 
   if (hash === HASH) {
-    sessionStorage.setItem(key, HASH);
-    location.reload(); // reload now passes the session check
+    localStorage.setItem(key, HASH);
+    location.reload(); // reload now passes the local storage  check
   } else {
     document.getElementById('gateError').textContent = 'Incorrect password';
     document.getElementById('gateInput').value = '';
