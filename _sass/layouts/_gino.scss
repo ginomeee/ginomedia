@@ -367,7 +367,8 @@
   // Company logo slot — top-right of experience card header
   .card-logo {
     flex-shrink: 0;
-    width: 80px;
+    width: 100%;
+    max-width: 80px;
     height: 28px;
     display: flex;
     align-items: center;
@@ -1027,6 +1028,7 @@
     .result-value          { font-size: 20px; }
     .result-value--primary { font-size: 26px; }
     h1                     { font-size: 32px; }
+    .card-logo             { justify-content: flex-start; }    
   }
 
   @media (max-width: 420px) {
