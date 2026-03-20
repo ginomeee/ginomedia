@@ -1035,8 +1035,11 @@
     .awards-grid { grid-template-columns: 1fr; }
   }
 
-  // ── PRINT ────────────────────────────────────────────────
+  // ── PRINT FOR INDEX ────────────────────────────────────────────────
+// ── PRINT ────────────────────────────────────────────────────────────
   @media print {
+
+    // ── Reset: CSS vars ──────────────────────────────────────────────
     --bg: #ffffff;
     --card: #ffffff;
     --card-hover: #ffffff;
@@ -1051,49 +1054,141 @@
     --green: #047857;
     --glow-hover: none;
 
-    font-size: 10px;
+    // ── Reset: base ──────────────────────────────────────────────────
+    font-size: 9px;
+    line-height: 1.3;
     background: #fff;
     color: #000;
 
-    .prose-block, .card-body, .award-desc, .card-title, .card-subtitle {
-      font-size: 12px;
-      line-height: 1.25;
-    }
-
-    .card {
-      padding: 10px;
-      .pub-card { padding: 10px; }
-    }
-
     &::before, &::after { display: none; }
-    .cursor-glow        { display: none; }
-    .preset-grid        { display: none; }
-    .soc-slider         { display: none; }
 
     *, *::before, *::after {
-      animation: none !important;
+      animation:  none !important;
       transition: none !important;
       box-shadow: none !important;
-      transform: none !important;
+      transform:  none !important;
     }
 
-    .card, .list-card, .award-badge, .pub-card, .stat-card {
-      border: 1px solid rgba(0,0,0,0.2);
-      break-inside: avoid;
-    }
+    // ── Hide: screen-only elements ───────────────────────────────────
+    header + .awards-grid,
+    .cursor-glow,
+    .preset-grid,
+    .soc-slider { display: none; }
+
+    // ── Typography ───────────────────────────────────────────────────
+    h1 { font-size: 22px; line-height: 1.2; color: #000; }
+
+    .prose-block,
+    .card-body,
+    .card-title,
+    .card-subtitle,
+    .award-desc,
+    .edu-degree,
+    .pub-desc,
+    .list-body,
+    .tag,
+    .chip,
+    .badge       { font-size: 11px; line-height: 1.25; }
+
+    .section-tag  { font-size: 12px; }
+    .stat-num     { font-size: 18px; }
+    .result-value { color: #000; }
+
+    footer a,
+    .chip { color: #000; text-decoration: underline; }
+
+    // ── Layout: page structure ───────────────────────────────────────
+    header          { padding-bottom: 12px; }
+    footer          { margin-top: 20px; padding: 12px 0; }
 
     .section {
       opacity: 1 !important;
       transform: none !important;
+      margin-top: 18px;
+
+      &-header { margin-bottom: 10px; }
     }
 
-    footer a, .chip {
-      color: #000;
-      text-decoration: underline;
+    // ── Layout: grids ────────────────────────────────────────────────
+    .card-grid {
+      gap: 4px;
+      &.two-col { grid-template-columns: repeat(2, 1fr); }
     }
 
-    .result-value { color: #000; }
-  }
+    .awards-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      & + .section { margin-top: 14px; }
+    }
+
+    .stat-stack { gap: 5px; }
+    .chip-row   { gap: 5px; margin-top: 6px; }
+    .tag-row    { gap: 4px; }
+
+    // ── Components: cards (shared break rule) ────────────────────────
+    .card,
+    .list-card,
+    .award-badge,
+    .pub-card,
+    .stat-card {
+      border: 1px solid rgba(0,0,0,0.2);
+      break-inside: avoid;
+    }
+
+    .card {
+      padding: 8px 12px; margin-bottom: 4px; 
+      .card-title, .card-subtitle {
+        font-size: 14px;
+      }
+      .card-title { color: #000; font-weight: 600;}
+      .card-logo {
+        opacity: 1 !important;
+
+        img {
+          opacity: 1 !important;
+        }
+      }
+    }
+    .list-card   { padding: 8px 12px; }
+    .stat-card   { padding: 8px 12px; }
+    .pub-card    { padding: 7px 10px; margin-top: 6px; }
+
+    .card-logo {
+      img {
+        filter: brightness(0);
+        padding: 4px;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+    }
+
+    // ── Components: awards ───────────────────────────────────────────
+    .award-badge    { padding: 10px 8px; }
+    .award-year     { margin-top: 6px; }
+    .award-logo-wrap { width: 44px; height: 44px; margin-bottom: 8px; }
+    .award-ribbon   { font-size: 9px; padding: 2px 8px; }
+
+    // ── Components: education ────────────────────────────────────────
+    .edu-header { gap: 8px; margin-bottom: 6px; }
+
+    .edu-logo {
+      width: 36px;
+      height: 36px;
+      opacity: 1 !important;
+      border: none;
+
+      img {
+        width: 100%;
+        opacity: 1 !important;
+      }
+    }
+
+    .edu-school { color: #000; }
+
+    // ── Components: tags ─────────────────────────────────────────────
+    .tag { padding: 2px 6px; }
+
+  } // end @media print
 
   // ── NAMMI SHOWCASE ───────────────────────────────────────
   .nammi-showcase { margin-top: 48px; }
