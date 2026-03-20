@@ -168,6 +168,38 @@
     }
   }
 
+  // ── PRINT BUTTON ─────────────────────────────────────────────────
+  .print-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px 14px;
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: var(--text-dim);
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    cursor: pointer;
+    transition: all 0.2s;
+
+    svg {
+      width: 14px;
+      height: 14px;
+      stroke: currentColor;
+      flex-shrink: 0;
+    }
+
+    &:hover {
+      border-color: var(--border-hover);
+      color: var(--blue-bright);
+      background: rgba(59, 130, 246, 0.05);
+    }
+  }
+
   // ── STAT CARDS ───────────────────────────────────────────
   .stat-stack {
     display: flex;
@@ -1074,6 +1106,7 @@
     .cursor-glow,
     .preset-grid,
     .soc-slider { display: none; }
+    .print-btn { display: none; }
 
     // ── Typography ───────────────────────────────────────────────────
     h1 { font-size: 22px; line-height: 1.2; color: #000; }
