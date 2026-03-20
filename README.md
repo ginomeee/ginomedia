@@ -26,18 +26,12 @@ This is a personal hobby project and not intended as a template or starter kit. 
 
 ## Planned Features
 
-- [ ] **Theme toggle** (light/dark) with persistent preference  
-- [ ] Smooth scrolling and section navigation (sticky sidebar/nav chips)  
-- [ ] Downloadable PDF resume export (print-friendly stylesheet)  
+- [x] Downloadable print-ready CV (print-friendly stylesheet):  **Completed [26.03.20]**
+- [ ] **Theme toggle** (light/dark) with persistent preference 
 - [ ] “Jump to section” anchor links (experience, education, certifications, awards)  
 - [ ] Interactive timeline or collapsible accordion for work history  
-- [ ] Contact form with email forwarding (static form via Netlify/Forms or Formspree)  
-- [ ] Accessibility enhancements (keyboard nav, focus states, ARIA landmarks)  
-- [ ] Analytics (e.g. Plausible or simple hit counter)  
-- [ ] Feedback or CTA with calendar 
+- [ ] Analytics (e.g. Plausible or simple hit counter)
 - [ ] **Portfolio/project** showcase section with lightbox or embedded previews  
-- [ ] RSS/JSON feed for updates (new projects, publications, blog posts)  
-- [ ] **Print resume** mode to generate a clean PDF layout
 
 
 ---
