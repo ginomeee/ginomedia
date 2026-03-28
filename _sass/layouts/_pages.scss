@@ -10,3 +10,47 @@ body#frangino24 {
     max-height: 60vh;
   }
 }
+
+// ── 404 ───────────────────────────────────────────────────────
+.not-found {
+  display:         flex;
+  flex-direction:  column;
+  align-items:     center;
+  justify-content: center;
+  text-align:      center;
+  padding:         40px 20px;
+  min-height:      calc(100vh - 64px - 140px);
+
+  &__code {
+    font-family:         var(--mono);
+    font-size:           120px;
+    font-weight:         700;
+    color:               transparent;
+    -webkit-text-stroke: 1px rgba(59,130,246,0.35);
+    line-height:         1;
+    margin-bottom:       0;
+    letter-spacing:      -4px;
+  }
+
+  &__scene {
+    margin: 24px 0 32px;
+    width:  280px;
+    height: 200px;
+  }
+
+  &__title {
+    font-size:     22px;
+    font-weight:   600;
+    color:         var(--text);
+    margin-bottom: 10px;
+  }
+
+  &__sub {
+    font-family:   var(--mono);
+    font-size:     13px;
+    color:         var(--text-muted);
+    margin-bottom: 36px;
+    max-width:     400px;
+    line-height:   1.8;
+  }
+}

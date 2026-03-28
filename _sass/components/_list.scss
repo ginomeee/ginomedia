@@ -1,0 +1,37 @@
+// ── LIST HEADING / LABEL ──────────────────────────────────────
+.list-heading {
+  font-family:    var(--mono);
+  font-size:      16px;
+  font-weight:    500;
+  color:          var(--blue);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom:  8px;
+  display:        flex;
+  align-items:    center;
+  gap:            8px;
+
+  &::before { content: '//'; color: var(--text-muted); }
+}
+
+.list-label {
+  font-family:    var(--mono);
+  font-size:      10px;
+  font-weight:    500;
+  color:          var(--blue);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom:  14px;
+  display:        flex;
+  align-items:    center;
+  gap:            8px;
+
+  &::before { content: '//'; color: var(--text-muted); }
+}
+
+.list-body {
+  font-size:   13px;
+  color:       var(--text-dim);
+  line-height: 1.75;
+}
+

@@ -1,0 +1,40 @@
+// ── SECTION ───────────────────────────────────────────────────
+.section {
+  margin-bottom: 60px;
+  opacity:       0;
+  transform:     translateY(20px);
+  transition:    opacity 0.55s ease, transform 0.55s ease;
+
+  &.visible {
+    opacity:   1;
+    transform: translateY(0);
+  }
+}
+
+.section-header {
+  display:       flex;
+  align-items:   center;
+  gap:           14px;
+  margin-bottom: 24px;
+}
+
+.section-tag {
+  font-family:    var(--mono);
+  font-size:      13px;
+  color:          var(--blue);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  white-space:    nowrap;
+
+  &::before {
+    content: '// ';
+    color:   var(--text-muted);
+  }
+}
+
+.section-line {
+  flex:       1;
+  height:     1px;
+  background: linear-gradient(90deg, var(--border) 0%, transparent 100%);
+}
+

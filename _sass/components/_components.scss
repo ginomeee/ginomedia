@@ -1,4 +1,59 @@
-@import "buttons";
+@import "button";
 @import "cards";
 @import "bento";
+@import "list";
 @import "modals";
+
+// ─────────────────────────────────────────────────────────────
+//  _components.scss
+//  Reusable UI components for default layout pages
+//  Class names match _gino.scss for drop-in migration
+// ─────────────────────────────────────────────────────────────
+
+
+
+
+// ── PROSE ─────────────────────────────────────────────────────
+// For blog posts and markdown-heavy pages
+.prose {
+  max-width: 720px;
+
+  h2 { margin: 2.5rem 0 1rem; }
+  h3 { margin: 2rem 0 0.75rem; }
+
+  p, ul, ol { margin-bottom: 1.25rem; }
+
+  img {
+    margin: 1.5rem 0;
+    border: 1px solid var(--border);
+  }
+}
+
+// ── HIGHLIGHT ─────────────────────────────────────────────────
+.hl {
+  color:       var(--blue-bright);
+  font-weight: 500;
+}
+
+// ── TITLE LINE ────────────────────────────────────────────────
+.title-line {
+  font-family:   var(--mono);
+  font-size:     14px;
+  color:         var(--text-muted);
+  margin-bottom: 20px;
+}
+
+// ── RESPONSIVE COMPONENTS ─────────────────────────────────────
+@media (max-width: 768px) {
+  .card-grid.two-col { grid-template-columns: 1fr; }
+  .not-found__code   { font-size: 80px; }
+  .not-found__scene  { width: 220px; height: 160px; }
+}
+
+// ── PRINT ─────────────────────────────────────────────────────
+@media print {
+  .section      { opacity: 1 !important; transform: none !important; }
+  .not-found    { display: none; }
+  .chip-row     { display: none; }
+  .tag:hover    { transform: none; }
+}

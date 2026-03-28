@@ -1,25 +1,125 @@
 ---
-permalink: /404.html
+title: "404"
+description: "Page not found"
 layout: default
+permalink: /404.html
 ---
 
-<style type="text/css" media="screen">
-  .container {
-    margin: 10px auto;
-    max-width: 600px;
-    text-align: center;
-  }
-  h1 {
-    margin: 30px 0;
-    font-size: 4em;
-    line-height: 1;
-    letter-spacing: -1px;
-  }
-</style>
+<div class="not-found">
 
-<div class="container">
-  <h1>Boo!!! 404!!!</h1>
+  <div class="not-found__code">404</div>
 
-  <p><strong>Page not found :(</strong></p>
-  <p>The requested page could not be found.</p>
+  <!-- ANIMATED UFO / COW ABDUCTION SCENE -->
+  <div class="not-found__scene">
+    <svg viewBox="0 0 280 200" fill="none" xmlns="http://www.w3.org/2000/svg"
+      width="280" height="200" aria-label="A cow being abducted by a UFO">
+
+      <defs>
+        <!-- Beam gradient -->
+        <linearGradient id="beamGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%"   stop-color="#60a5fa" stop-opacity="0.5"/>
+          <stop offset="100%" stop-color="#60a5fa" stop-opacity="0"/>
+        </linearGradient>
+
+        <!-- Star twinkle animation -->
+        <animate id="twinkle" attributeName="opacity"
+          values="1;0.2;1" dur="2s" repeatCount="indefinite"/>
+      </defs>
+
+      <!-- STARS -->
+      <circle cx="20"  cy="20"  r="1.2" fill="#94a3b8" opacity="0.8">
+        <animate attributeName="opacity" values="0.8;0.2;0.8" dur="2.1s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="60"  cy="10"  r="1"   fill="#94a3b8" opacity="0.6">
+        <animate attributeName="opacity" values="0.6;0.1;0.6" dur="1.7s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="110" cy="25"  r="1.5" fill="#60a5fa" opacity="0.7">
+        <animate attributeName="opacity" values="0.7;0.2;0.7" dur="2.4s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="180" cy="8"   r="1"   fill="#94a3b8" opacity="0.5">
+        <animate attributeName="opacity" values="0.5;0.1;0.5" dur="1.9s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="240" cy="18"  r="1.2" fill="#94a3b8" opacity="0.7">
+        <animate attributeName="opacity" values="0.7;0.2;0.7" dur="2.2s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="265" cy="35"  r="0.8" fill="#60a5fa" opacity="0.6">
+        <animate attributeName="opacity" values="0.6;0.1;0.6" dur="1.5s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="30"  cy="55"  r="0.9" fill="#94a3b8" opacity="0.4">
+        <animate attributeName="opacity" values="0.4;0.1;0.4" dur="3.1s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="255" cy="60"  r="1"   fill="#94a3b8" opacity="0.5">
+        <animate attributeName="opacity" values="0.5;0.1;0.5" dur="2.8s" repeatCount="indefinite"/>
+      </circle>
+
+      <!-- UFO GROUP — hovers up and down -->
+      <g>
+        <animateTransform attributeName="transform" type="translate"
+          values="0,0; 0,-8; 0,0" dur="3s" repeatCount="indefinite"
+          calcMode="spline" keySplines="0.4 0 0.2 1; 0.4 0 0.2 1"/>
+
+        <!-- UFO dome -->
+        <ellipse cx="140" cy="62" rx="28" ry="14"
+          fill="rgba(13,25,41,0.9)" stroke="#3b82f6" stroke-width="1.5"/>
+        <!-- Dome window -->
+        <ellipse cx="140" cy="58" rx="14" ry="9"
+          fill="rgba(59,130,246,0.15)" stroke="#60a5fa" stroke-width="1"/>
+        <!-- Alien silhouette in dome (simple) -->
+        <ellipse cx="140" cy="57" rx="5" ry="6"
+          fill="rgba(96,165,250,0.2)"/>
+        <circle cx="140" cy="53" r="4"
+          fill="rgba(96,165,250,0.25)" stroke="#60a5fa" stroke-width="0.5"/>
+
+        <!-- UFO saucer body -->
+        <ellipse cx="140" cy="72" rx="46" ry="10"
+          fill="#0d1929" stroke="#3b82f6" stroke-width="1.5"/>
+
+        <!-- UFO lights — pulse -->
+        <circle cx="110" cy="73" r="3" fill="#60a5fa">
+          <animate attributeName="opacity" values="1;0.2;1" dur="0.8s" repeatCount="indefinite"/>
+        </circle>
+        <circle cx="124" cy="76" r="3" fill="#06b6d4">
+          <animate attributeName="opacity" values="0.2;1;0.2" dur="0.8s" repeatCount="indefinite"/>
+        </circle>
+        <circle cx="140" cy="78" r="3" fill="#60a5fa">
+          <animate attributeName="opacity" values="1;0.2;1" dur="0.8s" repeatCount="indefinite" begin="0.2s"/>
+        </circle>
+        <circle cx="156" cy="76" r="3" fill="#06b6d4">
+          <animate attributeName="opacity" values="0.2;1;0.2" dur="0.8s" repeatCount="indefinite" begin="0.4s"/>
+        </circle>
+        <circle cx="170" cy="73" r="3" fill="#60a5fa">
+          <animate attributeName="opacity" values="1;0.2;1" dur="0.8s" repeatCount="indefinite" begin="0.6s"/>
+        </circle>
+      </g>
+
+      <!-- TRACTOR BEAM -->
+      <g>
+        <animateTransform attributeName="transform" type="translate"
+          values="0,0; 0,-8; 0,0" dur="3s" repeatCount="indefinite"
+          calcMode="spline" keySplines="0.4 0 0.2 1; 0.4 0 0.2 1"/>
+        <polygon points="122,78 158,78 175,175 105,175"
+          fill="url(#beamGrad)" opacity="0.5">
+          <animate attributeName="opacity" values="0.5;0.3;0.5" dur="1.5s" repeatCount="indefinite"/>
+        </polygon>
+      </g>
+
+      <!-- GROUND LINE -->
+      <line x1="40" y1="175" x2="240" y2="175"
+        stroke="rgba(59,130,246,0.2)" stroke-width="1"/>
+
+      <!-- COW — rises upward in beam -->
+
+    </svg>
+  </div>
+
+  <h1 class="not-found__title">Page Not Found</h1>
+  <p class="not-found__sub">
+    Looks like this page got abducted.<br>
+    We've searched the galaxy — it's not out there.
+  </p>
+
+  <a href="{{ '/' | relative_url }}" class="btn btn--primary">
+    ← Back to gino.media
+  </a>
+
 </div>
