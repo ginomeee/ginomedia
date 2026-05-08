@@ -206,6 +206,13 @@
     flex-direction: column;
     gap: 10px;
     min-width: 170px;
+    
+    svg {
+      width: 30px;
+      height: 30px;
+      stroke: currentColor;
+      flex-shrink: 0;
+    }
   }
 
   .stat-card {
@@ -271,14 +278,8 @@
   // ── SECTIONS ─────────────────────────────────────────────
   .section {
     margin-top: 60px;
-    opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.55s ease, transform 0.55s ease;
-
-    &.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
   }
 
   .section-header {
