@@ -239,6 +239,7 @@
   }
 
   .stat-icon {
+    font-size: 20px;
     flex-shrink: 0;
     width: 36px;
     height: 36px;
@@ -248,14 +249,7 @@
     background: rgba(59,130,246,0.08);
     border: 1px solid rgba(59,130,246,0.18);
     border-radius: 8px;
-
-    svg {
-      width: 18px;
-      height: 18px;
-      stroke: var(--blue-bright);
-      fill: none;
-      transition: transform 0.3s;
-    }
+    color: var(--blue-bright);
   }
 
   .stat-text { flex: 1; }
