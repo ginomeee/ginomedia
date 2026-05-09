@@ -200,7 +200,7 @@
   }
 
   // ── STAT CARDS ───────────────────────────────────────────
-  .stat-stack {
+  .stat-stack, .school-stack {
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -1097,13 +1097,15 @@
 
     // ── Hide: screen-only elements ───────────────────────────────────
     header + .awards-grid,
+    h1 > br,
+    .stat-stack,
     .cursor-glow,
     .preset-grid,
     .soc-slider { display: none; }
     .print-btn { display: none; }
 
     // ── Typography ───────────────────────────────────────────────────
-    h1 { font-size: 22px; line-height: 1.2; color: #000; }
+    h1 { font-size: 28px; line-height: 1.2; color: #000; }
 
     .prose-block,
     .card-body,
